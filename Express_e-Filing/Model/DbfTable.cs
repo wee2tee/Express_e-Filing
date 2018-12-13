@@ -100,14 +100,16 @@ namespace Express_e_Filing.Model
                         conn.Close();
                         foreach (DataRow row in dt.Rows)
                         {
+                            int indent_space = !row.IsNull("level") ? (Convert.ToInt32(row.Field<decimal>("level")) -1) * 4 : 0;
+
                             glacc.Add(new GlaccDbf
                             {
-                                accnam = !row.IsNull("accnam") ? row.Field<string>("accnam").TrimEnd() : string.Empty,
-                                accnam2 = !row.IsNull("accnam2") ? row.Field<string>("accnam2").TrimEnd() : string.Empty,
+                                accnam = !row.IsNull("accnam") ? row.Field<string>("accnam").TrimEnd().AddIndent(indent_space) : string.Empty,
+                                accnam2 = !row.IsNull("accnam2") ? row.Field<string>("accnam2").TrimEnd().AddIndent(indent_space) : string.Empty,
                                 accnum = !row.IsNull("accnum") ? row.Field<string>("accnum").TrimEnd() : string.Empty,
                                 acctyp = !row.IsNull("acctyp") ? row.Field<string>("acctyp").TrimEnd() : string.Empty,
                                 group = !row.IsNull("group") ? row.Field<string>("group").TrimEnd() : string.Empty,
-                                level = !row.IsNull("level") ? row.Field<int>("level") : -1,
+                                level = !row.IsNull("level") ? row.Field<decimal>("level") : -1,
                                 nature = !row.IsNull("nature") ? row.Field<string>("nature").TrimEnd() : string.Empty,
                                 parent = !row.IsNull("parent") ? row.Field<string>("parent").TrimEnd() : string.Empty,
                                 status = !row.IsNull("status") ? row.Field<string>("status").TrimEnd() : string.Empty,
@@ -144,7 +146,7 @@ namespace Express_e_Filing.Model
         public string accnum { get; set; }
         public string accnam { get; set; }
         public string accnam2 { get; set; }
-        public int level { get; set; }
+        public decimal level { get; set; }
         public string parent { get; set; }
         public string group { get; set; }
         public string acctyp { get; set; }

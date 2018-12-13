@@ -50,14 +50,44 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabAsset = new System.Windows.Forms.TabPage();
             this.dgv1 = new CC.XDatagrid();
+            this.col1_accnum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col1_accnam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col1_accnam2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col1_taxonomy1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col1_taxonomy2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col1_glacc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabLiability = new System.Windows.Forms.TabPage();
             this.dgv2 = new CC.XDatagrid();
+            this.col2_accnum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col2_accnam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col2_accnam2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col2_taxonomy1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col2_taxonomy2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col2_glacc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabEquity = new System.Windows.Forms.TabPage();
             this.dgv3 = new CC.XDatagrid();
+            this.col3_accnum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col3_accnam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col3_accnam2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col3_taxonomy1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col3_taxonomy2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col3_glacc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabRevenue = new System.Windows.Forms.TabPage();
             this.dgv4 = new CC.XDatagrid();
+            this.col4_accnum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col4_accnam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col4_accnam2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col4_taxonomy1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col4_taxonomy2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col4_glacc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabExpense = new System.Windows.Forms.TabPage();
             this.dgv5 = new CC.XDatagrid();
+            this.col5_accnum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col5_accnam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col5_accnam2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col5_taxonomy1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col5_taxonomy2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col5_glacc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.cCompName = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -66,8 +96,10 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cLangEn = new System.Windows.Forms.RadioButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.lblProgramPath = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblProgramPath = new System.Windows.Forms.ToolStripStatusLabel();
+            this.inlineTaxonomy1 = new CC.XBrowseBox();
+            this.inlineTaxonomy2 = new CC.XBrowseBox();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabAsset.SuspendLayout();
@@ -97,7 +129,7 @@
             this.btnRegist});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(927, 43);
+            this.toolStrip1.Size = new System.Drawing.Size(972, 43);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -126,6 +158,7 @@
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(36, 40);
             this.btnEdit.Text = "toolStripButton4";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnSave
             // 
@@ -136,6 +169,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(36, 40);
             this.btnSave.Text = "toolStripButton2";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnStop
             // 
@@ -146,6 +180,7 @@
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(36, 40);
             this.btnStop.Text = "toolStripButton3";
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // toolStripSeparator2
             // 
@@ -161,6 +196,7 @@
             this.btnRegist.Name = "btnRegist";
             this.btnRegist.Size = new System.Drawing.Size(36, 40);
             this.btnRegist.Text = "toolStripButton5";
+            this.btnRegist.Click += new System.EventHandler(this.btnRegist_Click);
             // 
             // tabControl1
             // 
@@ -175,7 +211,7 @@
             this.tabControl1.Location = new System.Drawing.Point(6, 132);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(915, 437);
+            this.tabControl1.Size = new System.Drawing.Size(960, 437);
             this.tabControl1.TabIndex = 1;
             // 
             // tabAsset
@@ -183,7 +219,7 @@
             this.tabAsset.Controls.Add(this.dgv1);
             this.tabAsset.Location = new System.Drawing.Point(4, 25);
             this.tabAsset.Name = "tabAsset";
-            this.tabAsset.Size = new System.Drawing.Size(907, 408);
+            this.tabAsset.Size = new System.Drawing.Size(952, 408);
             this.tabAsset.TabIndex = 0;
             this.tabAsset.Text = "สินทรัพย์";
             this.tabAsset.UseVisualStyleBackColor = true;
@@ -203,7 +239,15 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv1.ColumnHeadersHeight = 28;
+            this.dgv1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgv1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.col1_accnum,
+            this.col1_accnam,
+            this.col1_accnam2,
+            this.col1_taxonomy1,
+            this.col1_taxonomy2,
+            this.col1_glacc});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 9.75F);
@@ -224,16 +268,72 @@
             this.dgv1.RowHeadersVisible = false;
             this.dgv1.RowTemplate.Height = 26;
             this.dgv1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv1.Size = new System.Drawing.Size(907, 408);
+            this.dgv1.Size = new System.Drawing.Size(952, 408);
             this.dgv1.StandardTab = true;
             this.dgv1.TabIndex = 0;
+            this.dgv1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgv_CellPainting);
+            this.dgv1.Paint += new System.Windows.Forms.PaintEventHandler(this.dgv_Paint);
+            // 
+            // col1_accnum
+            // 
+            this.col1_accnum.DataPropertyName = "accnum";
+            this.col1_accnum.HeaderText = "เลขที่บัญชี";
+            this.col1_accnum.MinimumWidth = 150;
+            this.col1_accnum.Name = "col1_accnum";
+            this.col1_accnum.ReadOnly = true;
+            this.col1_accnum.Width = 150;
+            // 
+            // col1_accnam
+            // 
+            this.col1_accnam.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.col1_accnam.DataPropertyName = "accnam";
+            this.col1_accnam.HeaderText = "ชื่อบัญชี (ไทย)";
+            this.col1_accnam.MinimumWidth = 150;
+            this.col1_accnam.Name = "col1_accnam";
+            this.col1_accnam.ReadOnly = true;
+            // 
+            // col1_accnam2
+            // 
+            this.col1_accnam2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.col1_accnam2.DataPropertyName = "accnam2";
+            this.col1_accnam2.HeaderText = "ชื่อบัญชี (Eng.)";
+            this.col1_accnam2.MinimumWidth = 150;
+            this.col1_accnam2.Name = "col1_accnam2";
+            this.col1_accnam2.ReadOnly = true;
+            this.col1_accnam2.Visible = false;
+            // 
+            // col1_taxonomy1
+            // 
+            this.col1_taxonomy1.DataPropertyName = "taxonomy1";
+            this.col1_taxonomy1.HeaderText = "Taxonomy 1";
+            this.col1_taxonomy1.MinimumWidth = 300;
+            this.col1_taxonomy1.Name = "col1_taxonomy1";
+            this.col1_taxonomy1.ReadOnly = true;
+            this.col1_taxonomy1.Width = 300;
+            // 
+            // col1_taxonomy2
+            // 
+            this.col1_taxonomy2.DataPropertyName = "taxonomy2";
+            this.col1_taxonomy2.HeaderText = "Taxonomy 2";
+            this.col1_taxonomy2.MinimumWidth = 300;
+            this.col1_taxonomy2.Name = "col1_taxonomy2";
+            this.col1_taxonomy2.ReadOnly = true;
+            this.col1_taxonomy2.Width = 300;
+            // 
+            // col1_glacc
+            // 
+            this.col1_glacc.DataPropertyName = "glacc";
+            this.col1_glacc.HeaderText = "Glacc";
+            this.col1_glacc.Name = "col1_glacc";
+            this.col1_glacc.ReadOnly = true;
+            this.col1_glacc.Visible = false;
             // 
             // tabLiability
             // 
             this.tabLiability.Controls.Add(this.dgv2);
             this.tabLiability.Location = new System.Drawing.Point(4, 25);
             this.tabLiability.Name = "tabLiability";
-            this.tabLiability.Size = new System.Drawing.Size(865, 386);
+            this.tabLiability.Size = new System.Drawing.Size(952, 408);
             this.tabLiability.TabIndex = 1;
             this.tabLiability.Text = "หนี้สิน";
             this.tabLiability.UseVisualStyleBackColor = true;
@@ -253,7 +353,15 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgv2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv2.ColumnHeadersHeight = 28;
+            this.dgv2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgv2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.col2_accnum,
+            this.col2_accnam,
+            this.col2_accnam2,
+            this.col2_taxonomy1,
+            this.col2_taxonomy2,
+            this.col2_glacc});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 9.75F);
@@ -274,16 +382,72 @@
             this.dgv2.RowHeadersVisible = false;
             this.dgv2.RowTemplate.Height = 26;
             this.dgv2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv2.Size = new System.Drawing.Size(865, 386);
+            this.dgv2.Size = new System.Drawing.Size(952, 408);
             this.dgv2.StandardTab = true;
             this.dgv2.TabIndex = 1;
+            this.dgv2.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgv_CellPainting);
+            this.dgv2.Paint += new System.Windows.Forms.PaintEventHandler(this.dgv_Paint);
+            // 
+            // col2_accnum
+            // 
+            this.col2_accnum.DataPropertyName = "accnum";
+            this.col2_accnum.HeaderText = "เลขที่บัญชี";
+            this.col2_accnum.MinimumWidth = 150;
+            this.col2_accnum.Name = "col2_accnum";
+            this.col2_accnum.ReadOnly = true;
+            this.col2_accnum.Width = 150;
+            // 
+            // col2_accnam
+            // 
+            this.col2_accnam.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.col2_accnam.DataPropertyName = "accnam";
+            this.col2_accnam.HeaderText = "ชื่อบัญชี (ไทย)";
+            this.col2_accnam.MinimumWidth = 150;
+            this.col2_accnam.Name = "col2_accnam";
+            this.col2_accnam.ReadOnly = true;
+            // 
+            // col2_accnam2
+            // 
+            this.col2_accnam2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.col2_accnam2.DataPropertyName = "accnam2";
+            this.col2_accnam2.HeaderText = "ชื่อบัญชี (Eng.)";
+            this.col2_accnam2.MinimumWidth = 150;
+            this.col2_accnam2.Name = "col2_accnam2";
+            this.col2_accnam2.ReadOnly = true;
+            this.col2_accnam2.Visible = false;
+            // 
+            // col2_taxonomy1
+            // 
+            this.col2_taxonomy1.DataPropertyName = "taxonomy1";
+            this.col2_taxonomy1.HeaderText = "Taxonomy 1";
+            this.col2_taxonomy1.MinimumWidth = 300;
+            this.col2_taxonomy1.Name = "col2_taxonomy1";
+            this.col2_taxonomy1.ReadOnly = true;
+            this.col2_taxonomy1.Width = 300;
+            // 
+            // col2_taxonomy2
+            // 
+            this.col2_taxonomy2.DataPropertyName = "taxonomy2";
+            this.col2_taxonomy2.HeaderText = "Taxonomy 2";
+            this.col2_taxonomy2.MinimumWidth = 300;
+            this.col2_taxonomy2.Name = "col2_taxonomy2";
+            this.col2_taxonomy2.ReadOnly = true;
+            this.col2_taxonomy2.Width = 300;
+            // 
+            // col2_glacc
+            // 
+            this.col2_glacc.DataPropertyName = "glacc";
+            this.col2_glacc.HeaderText = "Glacc";
+            this.col2_glacc.Name = "col2_glacc";
+            this.col2_glacc.ReadOnly = true;
+            this.col2_glacc.Visible = false;
             // 
             // tabEquity
             // 
             this.tabEquity.Controls.Add(this.dgv3);
             this.tabEquity.Location = new System.Drawing.Point(4, 25);
             this.tabEquity.Name = "tabEquity";
-            this.tabEquity.Size = new System.Drawing.Size(865, 386);
+            this.tabEquity.Size = new System.Drawing.Size(952, 408);
             this.tabEquity.TabIndex = 2;
             this.tabEquity.Text = "ทุน";
             this.tabEquity.UseVisualStyleBackColor = true;
@@ -303,7 +467,15 @@
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgv3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv3.ColumnHeadersHeight = 28;
+            this.dgv3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgv3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.col3_accnum,
+            this.col3_accnam,
+            this.col3_accnam2,
+            this.col3_taxonomy1,
+            this.col3_taxonomy2,
+            this.col3_glacc});
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 9.75F);
@@ -324,16 +496,72 @@
             this.dgv3.RowHeadersVisible = false;
             this.dgv3.RowTemplate.Height = 26;
             this.dgv3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv3.Size = new System.Drawing.Size(865, 386);
+            this.dgv3.Size = new System.Drawing.Size(952, 408);
             this.dgv3.StandardTab = true;
-            this.dgv3.TabIndex = 1;
+            this.dgv3.TabIndex = 2;
+            this.dgv3.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgv_CellPainting);
+            this.dgv3.Paint += new System.Windows.Forms.PaintEventHandler(this.dgv_Paint);
+            // 
+            // col3_accnum
+            // 
+            this.col3_accnum.DataPropertyName = "accnum";
+            this.col3_accnum.HeaderText = "เลขที่บัญชี";
+            this.col3_accnum.MinimumWidth = 150;
+            this.col3_accnum.Name = "col3_accnum";
+            this.col3_accnum.ReadOnly = true;
+            this.col3_accnum.Width = 150;
+            // 
+            // col3_accnam
+            // 
+            this.col3_accnam.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.col3_accnam.DataPropertyName = "accnam";
+            this.col3_accnam.HeaderText = "ชื่อบัญชี (ไทย)";
+            this.col3_accnam.MinimumWidth = 150;
+            this.col3_accnam.Name = "col3_accnam";
+            this.col3_accnam.ReadOnly = true;
+            // 
+            // col3_accnam2
+            // 
+            this.col3_accnam2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.col3_accnam2.DataPropertyName = "accnam2";
+            this.col3_accnam2.HeaderText = "ชื่อบัญชี (Eng.)";
+            this.col3_accnam2.MinimumWidth = 150;
+            this.col3_accnam2.Name = "col3_accnam2";
+            this.col3_accnam2.ReadOnly = true;
+            this.col3_accnam2.Visible = false;
+            // 
+            // col3_taxonomy1
+            // 
+            this.col3_taxonomy1.DataPropertyName = "taxonomy1";
+            this.col3_taxonomy1.HeaderText = "Taxonomy 1";
+            this.col3_taxonomy1.MinimumWidth = 300;
+            this.col3_taxonomy1.Name = "col3_taxonomy1";
+            this.col3_taxonomy1.ReadOnly = true;
+            this.col3_taxonomy1.Width = 300;
+            // 
+            // col3_taxonomy2
+            // 
+            this.col3_taxonomy2.DataPropertyName = "taxonomy2";
+            this.col3_taxonomy2.HeaderText = "Taxonomy 2";
+            this.col3_taxonomy2.MinimumWidth = 300;
+            this.col3_taxonomy2.Name = "col3_taxonomy2";
+            this.col3_taxonomy2.ReadOnly = true;
+            this.col3_taxonomy2.Width = 300;
+            // 
+            // col3_glacc
+            // 
+            this.col3_glacc.DataPropertyName = "glacc";
+            this.col3_glacc.HeaderText = "Glacc";
+            this.col3_glacc.Name = "col3_glacc";
+            this.col3_glacc.ReadOnly = true;
+            this.col3_glacc.Visible = false;
             // 
             // tabRevenue
             // 
             this.tabRevenue.Controls.Add(this.dgv4);
             this.tabRevenue.Location = new System.Drawing.Point(4, 25);
             this.tabRevenue.Name = "tabRevenue";
-            this.tabRevenue.Size = new System.Drawing.Size(865, 386);
+            this.tabRevenue.Size = new System.Drawing.Size(952, 408);
             this.tabRevenue.TabIndex = 3;
             this.tabRevenue.Text = "รายได้";
             this.tabRevenue.UseVisualStyleBackColor = true;
@@ -353,7 +581,15 @@
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.dgv4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv4.ColumnHeadersHeight = 28;
+            this.dgv4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgv4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.col4_accnum,
+            this.col4_accnam,
+            this.col4_accnam2,
+            this.col4_taxonomy1,
+            this.col4_taxonomy2,
+            this.col4_glacc});
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Tahoma", 9.75F);
@@ -374,16 +610,72 @@
             this.dgv4.RowHeadersVisible = false;
             this.dgv4.RowTemplate.Height = 26;
             this.dgv4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv4.Size = new System.Drawing.Size(865, 386);
+            this.dgv4.Size = new System.Drawing.Size(952, 408);
             this.dgv4.StandardTab = true;
-            this.dgv4.TabIndex = 1;
+            this.dgv4.TabIndex = 2;
+            this.dgv4.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgv_CellPainting);
+            this.dgv4.Paint += new System.Windows.Forms.PaintEventHandler(this.dgv_Paint);
+            // 
+            // col4_accnum
+            // 
+            this.col4_accnum.DataPropertyName = "accnum";
+            this.col4_accnum.HeaderText = "เลขที่บัญชี";
+            this.col4_accnum.MinimumWidth = 150;
+            this.col4_accnum.Name = "col4_accnum";
+            this.col4_accnum.ReadOnly = true;
+            this.col4_accnum.Width = 150;
+            // 
+            // col4_accnam
+            // 
+            this.col4_accnam.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.col4_accnam.DataPropertyName = "accnam";
+            this.col4_accnam.HeaderText = "ชื่อบัญชี (ไทย)";
+            this.col4_accnam.MinimumWidth = 150;
+            this.col4_accnam.Name = "col4_accnam";
+            this.col4_accnam.ReadOnly = true;
+            // 
+            // col4_accnam2
+            // 
+            this.col4_accnam2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.col4_accnam2.DataPropertyName = "accnam2";
+            this.col4_accnam2.HeaderText = "ชื่อบัญชี (Eng.)";
+            this.col4_accnam2.MinimumWidth = 150;
+            this.col4_accnam2.Name = "col4_accnam2";
+            this.col4_accnam2.ReadOnly = true;
+            this.col4_accnam2.Visible = false;
+            // 
+            // col4_taxonomy1
+            // 
+            this.col4_taxonomy1.DataPropertyName = "taxonomy1";
+            this.col4_taxonomy1.HeaderText = "Taxonomy 1";
+            this.col4_taxonomy1.MinimumWidth = 300;
+            this.col4_taxonomy1.Name = "col4_taxonomy1";
+            this.col4_taxonomy1.ReadOnly = true;
+            this.col4_taxonomy1.Width = 300;
+            // 
+            // col4_taxonomy2
+            // 
+            this.col4_taxonomy2.DataPropertyName = "taxonomy2";
+            this.col4_taxonomy2.HeaderText = "Taxonomy 2";
+            this.col4_taxonomy2.MinimumWidth = 300;
+            this.col4_taxonomy2.Name = "col4_taxonomy2";
+            this.col4_taxonomy2.ReadOnly = true;
+            this.col4_taxonomy2.Width = 300;
+            // 
+            // col4_glacc
+            // 
+            this.col4_glacc.DataPropertyName = "glacc";
+            this.col4_glacc.HeaderText = "Glacc";
+            this.col4_glacc.Name = "col4_glacc";
+            this.col4_glacc.ReadOnly = true;
+            this.col4_glacc.Visible = false;
             // 
             // tabExpense
             // 
             this.tabExpense.Controls.Add(this.dgv5);
             this.tabExpense.Location = new System.Drawing.Point(4, 25);
             this.tabExpense.Name = "tabExpense";
-            this.tabExpense.Size = new System.Drawing.Size(865, 386);
+            this.tabExpense.Size = new System.Drawing.Size(952, 408);
             this.tabExpense.TabIndex = 4;
             this.tabExpense.Text = "ค่าใช้จ่าย";
             this.tabExpense.UseVisualStyleBackColor = true;
@@ -403,7 +695,15 @@
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv5.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.dgv5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv5.ColumnHeadersHeight = 28;
+            this.dgv5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgv5.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.col5_accnum,
+            this.col5_accnam,
+            this.col5_accnam2,
+            this.col5_taxonomy1,
+            this.col5_taxonomy2,
+            this.col5_glacc});
             dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle10.Font = new System.Drawing.Font("Tahoma", 9.75F);
@@ -424,9 +724,65 @@
             this.dgv5.RowHeadersVisible = false;
             this.dgv5.RowTemplate.Height = 26;
             this.dgv5.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv5.Size = new System.Drawing.Size(865, 386);
+            this.dgv5.Size = new System.Drawing.Size(952, 408);
             this.dgv5.StandardTab = true;
-            this.dgv5.TabIndex = 1;
+            this.dgv5.TabIndex = 2;
+            this.dgv5.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgv_CellPainting);
+            this.dgv5.Paint += new System.Windows.Forms.PaintEventHandler(this.dgv_Paint);
+            // 
+            // col5_accnum
+            // 
+            this.col5_accnum.DataPropertyName = "accnum";
+            this.col5_accnum.HeaderText = "เลขที่บัญชี";
+            this.col5_accnum.MinimumWidth = 150;
+            this.col5_accnum.Name = "col5_accnum";
+            this.col5_accnum.ReadOnly = true;
+            this.col5_accnum.Width = 150;
+            // 
+            // col5_accnam
+            // 
+            this.col5_accnam.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.col5_accnam.DataPropertyName = "accnam";
+            this.col5_accnam.HeaderText = "ชื่อบัญชี (ไทย)";
+            this.col5_accnam.MinimumWidth = 150;
+            this.col5_accnam.Name = "col5_accnam";
+            this.col5_accnam.ReadOnly = true;
+            // 
+            // col5_accnam2
+            // 
+            this.col5_accnam2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.col5_accnam2.DataPropertyName = "accnam2";
+            this.col5_accnam2.HeaderText = "ชื่อบัญชี (Eng.)";
+            this.col5_accnam2.MinimumWidth = 150;
+            this.col5_accnam2.Name = "col5_accnam2";
+            this.col5_accnam2.ReadOnly = true;
+            this.col5_accnam2.Visible = false;
+            // 
+            // col5_taxonomy1
+            // 
+            this.col5_taxonomy1.DataPropertyName = "taxonomy1";
+            this.col5_taxonomy1.HeaderText = "Taxonomy 1";
+            this.col5_taxonomy1.MinimumWidth = 300;
+            this.col5_taxonomy1.Name = "col5_taxonomy1";
+            this.col5_taxonomy1.ReadOnly = true;
+            this.col5_taxonomy1.Width = 300;
+            // 
+            // col5_taxonomy2
+            // 
+            this.col5_taxonomy2.DataPropertyName = "taxonomy2";
+            this.col5_taxonomy2.HeaderText = "Taxonomy 2";
+            this.col5_taxonomy2.MinimumWidth = 300;
+            this.col5_taxonomy2.Name = "col5_taxonomy2";
+            this.col5_taxonomy2.ReadOnly = true;
+            this.col5_taxonomy2.Width = 300;
+            // 
+            // col5_glacc
+            // 
+            this.col5_glacc.DataPropertyName = "glacc";
+            this.col5_glacc.HeaderText = "Glacc";
+            this.col5_glacc.Name = "col5_glacc";
+            this.col5_glacc.ReadOnly = true;
+            this.col5_glacc.Visible = false;
             // 
             // label1
             // 
@@ -445,7 +801,6 @@
             this.cCompName.Name = "cCompName";
             this.cCompName.Size = new System.Drawing.Size(582, 21);
             this.cCompName.TabIndex = 3;
-            this.cCompName.Text = "_data code";
             // 
             // label3
             // 
@@ -464,11 +819,11 @@
             this.cDataPath.Name = "cDataPath";
             this.cDataPath.Size = new System.Drawing.Size(582, 21);
             this.cDataPath.TabIndex = 3;
-            this.cDataPath.Text = "_data code";
             // 
             // cLangTh
             // 
             this.cLangTh.AutoSize = true;
+            this.cLangTh.Checked = true;
             this.cLangTh.Location = new System.Drawing.Point(10, 19);
             this.cLangTh.Name = "cLangTh";
             this.cLangTh.Size = new System.Drawing.Size(50, 20);
@@ -476,13 +831,14 @@
             this.cLangTh.TabStop = true;
             this.cLangTh.Text = "ไทย";
             this.cLangTh.UseVisualStyleBackColor = true;
+            this.cLangTh.CheckedChanged += new System.EventHandler(this.cLangTh_CheckedChanged);
             // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.cLangEn);
             this.groupBox1.Controls.Add(this.cLangTh);
-            this.groupBox1.Location = new System.Drawing.Point(763, 107);
+            this.groupBox1.Location = new System.Drawing.Point(808, 107);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(152, 45);
             this.groupBox1.TabIndex = 5;
@@ -496,9 +852,9 @@
             this.cLangEn.Name = "cLangEn";
             this.cLangEn.Size = new System.Drawing.Size(51, 20);
             this.cLangEn.TabIndex = 4;
-            this.cLangEn.TabStop = true;
             this.cLangEn.Text = "Eng.";
             this.cLangEn.UseVisualStyleBackColor = true;
+            this.cLangEn.CheckedChanged += new System.EventHandler(this.cLangEn_CheckedChanged);
             // 
             // statusStrip1
             // 
@@ -507,15 +863,9 @@
             this.lblProgramPath});
             this.statusStrip1.Location = new System.Drawing.Point(0, 575);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(927, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(972, 22);
             this.statusStrip1.TabIndex = 6;
             this.statusStrip1.Text = "statusStrip1";
-            // 
-            // lblProgramPath
-            // 
-            this.lblProgramPath.Name = "lblProgramPath";
-            this.lblProgramPath.Size = new System.Drawing.Size(37, 17);
-            this.lblProgramPath.Text = "          ";
             // 
             // toolStripStatusLabel1
             // 
@@ -523,11 +873,55 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(80, 17);
             this.toolStripStatusLabel1.Text = "ที่เก็บโปรแกรม : ";
             // 
+            // lblProgramPath
+            // 
+            this.lblProgramPath.Name = "lblProgramPath";
+            this.lblProgramPath.Size = new System.Drawing.Size(37, 17);
+            this.lblProgramPath.Text = "          ";
+            // 
+            // inlineTaxonomy1
+            // 
+            this.inlineTaxonomy1._BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.inlineTaxonomy1._CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.inlineTaxonomy1._ReadOnly = false;
+            this.inlineTaxonomy1._Text = "";
+            this.inlineTaxonomy1._TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.inlineTaxonomy1._UseImage = true;
+            this.inlineTaxonomy1.BackColor = System.Drawing.Color.White;
+            this.inlineTaxonomy1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.inlineTaxonomy1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.inlineTaxonomy1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.inlineTaxonomy1.Location = new System.Drawing.Point(724, 55);
+            this.inlineTaxonomy1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.inlineTaxonomy1.Name = "inlineTaxonomy1";
+            this.inlineTaxonomy1.Size = new System.Drawing.Size(154, 23);
+            this.inlineTaxonomy1.TabIndex = 7;
+            // 
+            // inlineTaxonomy2
+            // 
+            this.inlineTaxonomy2._BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.inlineTaxonomy2._CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.inlineTaxonomy2._ReadOnly = false;
+            this.inlineTaxonomy2._Text = "";
+            this.inlineTaxonomy2._TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.inlineTaxonomy2._UseImage = true;
+            this.inlineTaxonomy2.BackColor = System.Drawing.Color.White;
+            this.inlineTaxonomy2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.inlineTaxonomy2.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.inlineTaxonomy2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.inlineTaxonomy2.Location = new System.Drawing.Point(724, 80);
+            this.inlineTaxonomy2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.inlineTaxonomy2.Name = "inlineTaxonomy2";
+            this.inlineTaxonomy2.Size = new System.Drawing.Size(154, 23);
+            this.inlineTaxonomy2.TabIndex = 7;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(927, 597);
+            this.ClientSize = new System.Drawing.Size(972, 597);
+            this.Controls.Add(this.inlineTaxonomy2);
+            this.Controls.Add(this.inlineTaxonomy1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cDataPath);
@@ -544,6 +938,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.Shown += new System.EventHandler(this.MainForm_Shown);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
@@ -590,13 +985,45 @@
         private System.Windows.Forms.TabPage tabRevenue;
         private System.Windows.Forms.TabPage tabExpense;
         private CC.XDatagrid dgv1;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel lblProgramPath;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private CC.XDatagrid dgv2;
         private CC.XDatagrid dgv3;
         private CC.XDatagrid dgv4;
         private CC.XDatagrid dgv5;
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel lblProgramPath;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col1_accnum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col1_accnam;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col1_accnam2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col1_taxonomy1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col1_taxonomy2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col1_glacc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col2_accnum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col2_accnam;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col2_accnam2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col2_taxonomy1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col2_taxonomy2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col2_glacc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col3_accnum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col3_accnam;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col3_accnam2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col3_taxonomy1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col3_taxonomy2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col3_glacc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col4_accnum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col4_accnam;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col4_accnam2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col4_taxonomy1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col4_taxonomy2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col4_glacc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col5_accnum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col5_accnam;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col5_accnam2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col5_taxonomy1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col5_taxonomy2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col5_glacc;
+        private CC.XBrowseBox inlineTaxonomy1;
+        private CC.XBrowseBox inlineTaxonomy2;
     }
 }
 

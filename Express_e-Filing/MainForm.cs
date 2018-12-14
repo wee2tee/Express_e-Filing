@@ -11,6 +11,9 @@ using Express_e_Filing.Model;
 using Express_e_Filing.Misc;
 using System.Data.OleDb;
 using CC;
+using System.Data.SQLite;
+using System.Data.SQLite.EF6;
+using System.IO;
 
 namespace Express_e_Filing
 {
@@ -299,6 +302,11 @@ namespace Express_e_Filing
             this.selected_comp = selcomp.selected_comp;
             this.glacc_list = DbfTable.GetGlaccList(this.selected_comp);
 
+            if(this.selected_comp != null)
+            {
+                SQLiteDbContext.EnsureDbCreated(this.selected_comp);
+            }
+
             this.FillForm();
         }
 
@@ -372,7 +380,11 @@ namespace Express_e_Filing
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-
+            var taxo = Taxonomy.GetTaxonomyList(this);
+            foreach (var item in taxo)
+            {
+                Console.WriteLine(" ==> " + item.taxodesc);
+            }
         }
 
         private void btnStop_Click(object sender, EventArgs e)
@@ -383,7 +395,7 @@ namespace Express_e_Filing
 
         private void btnRegist_Click(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

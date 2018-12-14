@@ -126,6 +126,18 @@ namespace Express_e_Filing.SubForm
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
+            if(keyData == Keys.Enter)
+            {
+                this.btnOK.PerformClick();
+                return true;
+            }
+
+            if(keyData == Keys.Escape)
+            {
+                this.btnCancel.PerformClick();
+                return true;
+            }
+
             return base.ProcessCmdKey(ref msg, keyData);
         }
 

@@ -149,6 +149,7 @@
     <None Include="Resources\edit.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\export_excel.png" />
     <Content Include="Template\dbd_taxonomy.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

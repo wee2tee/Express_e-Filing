@@ -45,5 +45,12 @@ namespace Express_e_Filing.Model
         {
             return "[" + this.taxodesc + "]" + " " + this.name;
         }
+
+
+        public static XDocument GetTaxo()
+        {
+            XDocument xdoc = XDocument.Load(AppDomain.CurrentDomain.BaseDirectory + "/Template/cal_cmp_2017-12-31.xml");
+            return xdoc;
+        }
     }
 }

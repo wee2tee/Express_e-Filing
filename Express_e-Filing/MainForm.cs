@@ -397,5 +397,12 @@ namespace Express_e_Filing
         {
             
         }
+
+        private void btnExportStatement_Click(object sender, EventArgs e)
+        {
+            var xdoc = Taxonomy.GetTaxo();
+
+            Console.WriteLine(xdoc);
+        }
     }
 }

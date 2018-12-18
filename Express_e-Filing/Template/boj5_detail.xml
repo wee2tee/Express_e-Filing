@@ -1,0 +1,33 @@
+﻿<shareholderDetails>
+    <addrForeign>{{addrForeign}}</addrForeign>
+    <addrFull>{{addrFull}}</addrFull>
+    <addrNo>{{addrNo}}</addrNo>
+    <amphur>{{amphur}}</amphur>
+    <asPaidAmount>{{asPaidAmount}}</asPaidAmount>
+    <holderName>{{holderName}}</holderName>
+    <id>
+        <itemNo>{{itemNo}}</itemNo>
+        <revisionNo></revisionNo>
+        <userId>{{userId}}</userId>
+    </id>
+    <itemSeq>{{itemSeq}}</itemSeq>
+    <moo>{{moo}}</moo>
+    <nationality>{{nationality}}</nationality>
+    <occupation>{{occupation}}</occupation>
+    <paidAmount>{{paidAmount}}</paidAmount>
+    <province>{{province}}</province>
+    <road>{{road}}</road>
+    <shId>{{shId}}</shId>
+    <shType>{{shType}}</shType>
+    <shareDocDate>{{shareDocDate}}</shareDocDate>
+    <shareDocId>{{shareDocId}}</shareDocId>
+    <shareNumber>{{shareNumber}}</shareNumber>
+    <shareRegExist>{{shareRegExist}}</shareRegExist>
+    <shareRegOmit>{{shareRegOmit}}</shareRegOmit>
+    <shareType>{{shareType}}</shareType>
+    <soi>{{soi}}</soi>
+    <surname>{{surname}}</surname>
+    <title>{{title}}</title>
+    <tumbol>{{tumbol}}</tumbol>
+</shareholderDetails>
+

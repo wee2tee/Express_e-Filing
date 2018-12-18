@@ -60,13 +60,26 @@ namespace Express_e_Filing.Model
                     }
                 }
 
-                return;
-
+                UpgradeDB(sccomp);
             }
             catch (Exception ex)
             {
                 XMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, XMessageBoxIcon.Error);
-                return;
+            }
+        }
+
+        public static void UpgradeDB(SccompDbf sccomp)
+        {
+            using (SQLiteConnection connection = new SQLiteConnection(@"Data Source=" + sccomp.GetAbsolutePath() + SQLiteDbContext.taxonomy_matching_file_name + @";Version=3;"))
+            {
+                using (SQLiteCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "CREATE TABLE IF NOT EXISTS boj5_header(id INTEGER PRIMARY KEY, userId TEXT, accSource TEXT, meetingType TEXT, meetingNo TEXT, sourceDate TEXT, totalCapital REAL, totalShare INTEGER, parValue REAL, thaiShareholder INTEGER, totalThaiShare INTEGER, foreignShareholder INTEGER, totalForeignShare INTEGER, headerStatus TEXT, yearEnd TEXT);";
+                    cmd.CommandText += "CREATE TABLE IF NOT EXISTS share_holder(id INTEGER PRIMARY KEY, addrForeign TEXT, addrFull TEXT, addrNo TEXT, amphur TEXT, asPaidAmount REAL, holderName TEXT, itemNo INTEGER, userId TEXT, itemSeq INTEGER, moo TEXT, nationality TEXT, occupation TEXT, paidAmount REAL, province TEXT, road TEXT, shId TEXT, shType TEXT, shareDocDate TEXT, shareDocId TEXT, shareNumber INTEGER, shareRegExist TEXT, shareRegOmit TEXT, shareType TEXT, soi TEXT, surname TEXT, title TEXT, tumbol TEXT);";
+                    connection.Open();
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                }
             }
         }
     }

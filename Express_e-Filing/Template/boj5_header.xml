@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SHAREHOLDER_ACCOUNTS>
+    <shareholderHeader recordId="" userId="{{userId}}">
+        <id>
+            <revisionNo></revisionNo>
+            <userId>{{userId}}</userId>
+        </id>
+        <accSource>{{accSource}}</accSource>
+        <meetingType>{{meetingType}}</meetingType>
+        <meetingNo>{{meetingNo}}</meetingNo>
+        <sourceDate>{{sourceDate}}</sourceDate>
+        <totalCapital>{{totalCapital}}</totalCapital>
+        <totalShare>{{totalShare}}</totalShare>
+        <parValue>{{parValue}}</parValue>
+        <thaiShareholder>{{thaiShareholder}}</thaiShareholder>
+        <totalThaiShare>{{totalThaiShare}}</totalThaiShare>
+        <foreignShareholder>{{foreignShareholder}}</foreignShareholder>
+        <totalForeignShare>{{totalForeignShare}}</totalForeignShare>
+        <headerStatus>{{headerStatus}}</headerStatus>
+        <yearEnd>{{yearEnd}}</yearEnd>
+    </shareholderHeader>
+    {{details}}
+</SHAREHOLDER_ACCOUNTS>

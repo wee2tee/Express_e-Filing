@@ -400,9 +400,12 @@ namespace Express_e_Filing
 
         private void btnExportStatement_Click(object sender, EventArgs e)
         {
-            var xdoc = Taxonomy.GetTaxo();
+            //var xdoc = Taxonomy.GetTaxo();
 
-            Console.WriteLine(xdoc);
+            //Console.WriteLine(xdoc);
+
+            DialogShareHolders ds = new DialogShareHolders(this);
+            ds.ShowDialog();
         }
     }
 }

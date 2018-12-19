@@ -97,6 +97,12 @@
     <Compile Include="SubForm\DialogSelectComp.Designer.cs">
       <DependentUpon>DialogSelectComp.cs</DependentUpon>
     </Compile>
+    <Compile Include="SubForm\DialogShareHolders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForm\DialogShareHolders.Designer.cs">
+      <DependentUpon>DialogShareHolders.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -115,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SubForm\DialogSelectComp.resx">
       <DependentUpon>DialogSelectComp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForm\DialogShareHolders.resx">
+      <DependentUpon>DialogShareHolders.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />
@@ -151,10 +160,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\export_excel.png" />
+    <None Include="Resources\item.png" />
+    <None Include="Resources\add_16.png" />
+    <None Include="Resources\cancel_12.png" />
+    <None Include="Resources\edit_16.png" />
     <Content Include="Template\boj5_detail.xml" />
     <Content Include="Template\boj5_header.xml" />
     <Content Include="Template\dbd_taxonomy.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

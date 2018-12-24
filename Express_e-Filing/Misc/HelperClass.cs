@@ -201,6 +201,14 @@ namespace Express_e_Filing.Misc
 
                     return;
                 }
+                if(comp is RadioButton)
+                {
+                    ((RadioButton)comp).Enabled = true;
+                    if (accessibility_by_scacclv != null && accessibility_by_scacclv == "N")
+                        ((RadioButton)comp).Enabled = false;
+
+                    return;
+                }
             }
             else
             {
@@ -247,6 +255,10 @@ namespace Express_e_Filing.Misc
                 if (comp is XBrowseBox)
                 {
                     ((XBrowseBox)comp)._ReadOnly = true; return;
+                }
+                if(comp is RadioButton)
+                {
+                    ((RadioButton)comp).Enabled = false; return;
                 }
             }
         }

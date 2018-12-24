@@ -37,6 +37,7 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabAsset = new System.Windows.Forms.TabPage();
             this.dgv1 = new CC.XDatagrid();
@@ -94,9 +95,9 @@
             this.btnEdit = new System.Windows.Forms.ToolStripButton();
             this.btnSave = new System.Windows.Forms.ToolStripButton();
             this.btnStop = new System.Windows.Forms.ToolStripButton();
-            this.btnRegist = new System.Windows.Forms.ToolStripButton();
             this.btnExportStatement = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnRegist = new System.Windows.Forms.ToolStripButton();
+            this.btnShareHolder = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabAsset.SuspendLayout();
@@ -123,6 +124,7 @@
             this.btnSave,
             this.btnStop,
             this.toolStripSeparator2,
+            this.btnShareHolder,
             this.btnExportStatement,
             this.toolStripSeparator3,
             this.btnRegist});
@@ -141,6 +143,11 @@
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 43);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 43);
             // 
             // tabControl1
             // 
@@ -863,17 +870,6 @@
             this.btnStop.Text = "toolStripButton3";
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
-            // btnRegist
-            // 
-            this.btnRegist.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnRegist.Image = global::Express_e_Filing.Properties.Resources.key_register;
-            this.btnRegist.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnRegist.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnRegist.Name = "btnRegist";
-            this.btnRegist.Size = new System.Drawing.Size(36, 40);
-            this.btnRegist.Text = "toolStripButton5";
-            this.btnRegist.Click += new System.EventHandler(this.btnRegist_Click);
-            // 
             // btnExportStatement
             // 
             this.btnExportStatement.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -885,10 +881,27 @@
             this.btnExportStatement.Text = "ส่งออกข้อมูลงบการเงิน";
             this.btnExportStatement.Click += new System.EventHandler(this.btnExportStatement_Click);
             // 
-            // toolStripSeparator3
+            // btnRegist
             // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 43);
+            this.btnRegist.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnRegist.Image = global::Express_e_Filing.Properties.Resources.key_register;
+            this.btnRegist.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnRegist.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnRegist.Name = "btnRegist";
+            this.btnRegist.Size = new System.Drawing.Size(36, 40);
+            this.btnRegist.Text = "toolStripButton5";
+            this.btnRegist.Click += new System.EventHandler(this.btnRegist_Click);
+            // 
+            // btnShareHolder
+            // 
+            this.btnShareHolder.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnShareHolder.Image = global::Express_e_Filing.Properties.Resources.person;
+            this.btnShareHolder.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnShareHolder.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnShareHolder.Name = "btnShareHolder";
+            this.btnShareHolder.Size = new System.Drawing.Size(36, 40);
+            this.btnShareHolder.Text = "บัญชีรายชื่อผู้ถือหุ้น";
+            this.btnShareHolder.Click += new System.EventHandler(this.btnShareHolder_Click);
             // 
             // MainForm
             // 
@@ -1001,6 +1014,7 @@
         private CC.XBrowseBox inlineTaxonomy2;
         private System.Windows.Forms.ToolStripButton btnExportStatement;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripButton btnShareHolder;
     }
 }
 

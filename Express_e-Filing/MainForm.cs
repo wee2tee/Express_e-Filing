@@ -19,7 +19,7 @@ namespace Express_e_Filing
 {
     public partial class MainForm : Form
     {
-        private SccompDbf selected_comp = null;
+        public SccompDbf selected_comp = null;
 
         private List<GlaccDbf> glacc_list;
         private BindingList<GlaccTaxonomyVM> glacc1;
@@ -307,6 +307,18 @@ namespace Express_e_Filing
                 SQLiteDbContext.EnsureDbCreated(this.selected_comp);
             }
 
+            //using (SQLiteDbContext d = new SQLiteDbContext(this.selected_comp))
+            //{
+            //    d.glacc_match.Add(new glacc_match
+            //    {
+            //        accnum = "11-22",
+            //        depcod = "ขาย 1",
+            //        taxodesc = "TAXO_1",
+            //        taxodesc2 = "TAXO_2"
+            //    });
+            //    d.SaveChanges();
+            //}
+
             this.FillForm();
         }
 
@@ -404,6 +416,12 @@ namespace Express_e_Filing
 
             //Console.WriteLine(xdoc);
 
+            DialogShareHolders ds = new DialogShareHolders(this);
+            ds.ShowDialog();
+        }
+
+        private void btnShareHolder_Click(object sender, EventArgs e)
+        {
             DialogShareHolders ds = new DialogShareHolders(this);
             ds.ShowDialog();
         }

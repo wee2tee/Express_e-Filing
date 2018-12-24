@@ -31,6 +31,9 @@ namespace Express_e_Filing.Model
             base.OnModelCreating(modelBuilder);
         }
 
+        public DbSet<boj5_header> boj5_header { get; set; }
+        public DbSet<boj5_person> boj5_person { get; set; }
+        public DbSet<boj5_detail> boj5_detail { get; set; }
         public DbSet<glacc_match> glacc_match { get; set; }
 
         public static void EnsureDbCreated(SccompDbf sccomp)
@@ -74,8 +77,9 @@ namespace Express_e_Filing.Model
             {
                 using (SQLiteCommand cmd = connection.CreateCommand())
                 {
-                    cmd.CommandText = "CREATE TABLE IF NOT EXISTS boj5_header(id INTEGER PRIMARY KEY, userId TEXT, accSource TEXT, meetingType TEXT, meetingNo TEXT, sourceDate TEXT, totalCapital REAL, totalShare INTEGER, parValue REAL, thaiShareholder INTEGER, totalThaiShare INTEGER, foreignShareholder INTEGER, totalForeignShare INTEGER, headerStatus TEXT, yearEnd TEXT);";
-                    cmd.CommandText += "CREATE TABLE IF NOT EXISTS share_holder(id INTEGER PRIMARY KEY, addrForeign TEXT, addrFull TEXT, addrNo TEXT, amphur TEXT, asPaidAmount REAL, holderName TEXT, itemNo INTEGER, userId TEXT, itemSeq INTEGER, moo TEXT, nationality TEXT, occupation TEXT, paidAmount REAL, province TEXT, road TEXT, shId TEXT, shType TEXT, shareDocDate TEXT, shareDocId TEXT, shareNumber INTEGER, shareRegExist TEXT, shareRegOmit TEXT, shareType TEXT, soi TEXT, surname TEXT, title TEXT, tumbol TEXT);";
+                    cmd.CommandText = "CREATE TABLE IF NOT EXISTS boj5_header(id INTEGER PRIMARY KEY, userId TEXT, accSource TEXT, meetingType TEXT, meetingNo TEXT, sourceDate DATE, totalCapital REAL, totalShare INTEGER, parValue REAL, thaiShareholder INTEGER, totalThaiShare INTEGER, foreignShareholder INTEGER, totalForeignShare INTEGER, headerStatus TEXT, yearEnd DATE);";
+                    cmd.CommandText += "CREATE TABLE IF NOT EXISTS boj5_person(id INTEGER PRIMARY KEY, addrForeign TEXT, addrFull TEXT, addrNo TEXT, amphur TEXT, holderName TEXT, itemSeq INTEGER, moo TEXT, nationality TEXT, occupation TEXT, province TEXT, road TEXT, shId TEXT, shType TEXT, soi TEXT, surname TEXT, title TEXT, tumbol TEXT);";
+                    cmd.CommandText += "CREATE TABLE IF NOT EXISTS boj5_detail(id INTEGER PRIMARY KEY, itemNo INTEGER, userId TEXT, shareNumber INTEGER, shareType TEXT, paidAmount REAL, asPaidAmount REAL, shareDocId TEXT, shareDocDate DATE, shareRegExist DATE, shareRegOmit DATE, boj5_person_id INT);"; //, FOREIGN KEY(boj5_person_id) REFERENCES boj5_person(id)
                     connection.Open();
                     cmd.ExecuteNonQuery();
                     connection.Close();

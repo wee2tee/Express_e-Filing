@@ -77,7 +77,7 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Misc\HelperClass.cs" />
-    <Compile Include="Model\Boj5.cs" />
+    <Compile Include="Model\boj5.cs" />
     <Compile Include="Model\DbfTable.cs" />
     <Compile Include="Model\glacc_match.cs" />
     <Compile Include="Model\SQLiteConfiguration.cs" />
@@ -164,8 +164,13 @@
     <None Include="Resources\add_16.png" />
     <None Include="Resources\cancel_12.png" />
     <None Include="Resources\edit_16.png" />
+    <None Include="Resources\person.png" />
+    <None Include="Resources\save_16.png" />
+    <None Include="Resources\stop_16.png" />
     <Content Include="Template\boj5_detail.xml" />
-    <Content Include="Template\boj5_header.xml" />
+    <Content Include="Template\boj5_header.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Template\dbd_taxonomy.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>

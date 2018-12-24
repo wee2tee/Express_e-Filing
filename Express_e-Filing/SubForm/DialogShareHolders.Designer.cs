@@ -31,49 +31,49 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.grpMeeting = new System.Windows.Forms.GroupBox();
+            this.cMeetingTypeS = new System.Windows.Forms.RadioButton();
+            this.cMeetingTypeC = new System.Windows.Forms.RadioButton();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cMeetingTypeE = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.cAccSource = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
             this.cSourceDate = new CC.XDatePicker();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.xMaskedTextEdit1 = new CC.XMaskedTextEdit();
-            this.cMeetingNo = new CC.XMaskedTextEdit();
             this.label7 = new System.Windows.Forms.Label();
-            this.xNumEdit1 = new CC.XNumEdit();
+            this.cTotalCapital = new CC.XNumEdit();
             this.label8 = new System.Windows.Forms.Label();
-            this.xNumEdit2 = new CC.XNumEdit();
+            this.cTotalShare = new CC.XNumEdit();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.xNumEdit3 = new CC.XNumEdit();
+            this.cParValue = new CC.XNumEdit();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.xTextEdit1 = new CC.XTextEdit();
+            this.cAccSource = new CC.XDropdownList();
+            this.btnStop = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
             this.xTextEdit2 = new CC.XTextEdit();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.xNumEdit4 = new CC.XNumEdit();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.xNumEdit5 = new CC.XNumEdit();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
+            this.xTextEdit1 = new CC.XTextEdit();
+            this.cTotalForeignShare = new CC.XNumEdit();
+            this.cTotalThaiShare = new CC.XNumEdit();
+            this.cForeignShareHolder = new CC.XNumEdit();
+            this.cThaiShareHolder = new CC.XNumEdit();
             this.label21 = new System.Windows.Forms.Label();
-            this.xNumEdit6 = new CC.XNumEdit();
-            this.xNumEdit7 = new CC.XNumEdit();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnDeleteItem = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.dgv = new CC.XDatagrid();
-            this.btnEditSave = new System.Windows.Forms.Button();
-            this.btnStop = new System.Windows.Forms.Button();
             this.col_itemNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_holderName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_shareNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -83,30 +83,80 @@
             this.col_shareRegExist = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_shareRegOmit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_boj5detail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnAddItem = new System.Windows.Forms.Button();
             this.btnEditItem = new System.Windows.Forms.Button();
-            this.btnDeleteItem = new System.Windows.Forms.Button();
+            this.btnAddItem = new System.Windows.Forms.Button();
+            this.label22 = new System.Windows.Forms.Label();
+            this.cYearEnd = new CC.XDatePicker();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cMeetingNo = new CC.XTextEdit();
             this.grpMeeting.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
             // grpMeeting
             // 
-            this.grpMeeting.Controls.Add(this.cMeetingNo);
-            this.grpMeeting.Controls.Add(this.xMaskedTextEdit1);
-            this.grpMeeting.Controls.Add(this.radioButton3);
-            this.grpMeeting.Controls.Add(this.radioButton2);
-            this.grpMeeting.Controls.Add(this.label6);
+            this.grpMeeting.Controls.Add(this.cMeetingTypeS);
+            this.grpMeeting.Controls.Add(this.cMeetingTypeC);
+            this.grpMeeting.Controls.Add(this.label22);
             this.grpMeeting.Controls.Add(this.label5);
-            this.grpMeeting.Controls.Add(this.radioButton1);
-            this.grpMeeting.Location = new System.Drawing.Point(326, 53);
+            this.grpMeeting.Controls.Add(this.cMeetingNo);
+            this.grpMeeting.Controls.Add(this.cMeetingTypeE);
+            this.grpMeeting.Controls.Add(this.label4);
+            this.grpMeeting.Controls.Add(this.cSourceDate);
+            this.grpMeeting.Location = new System.Drawing.Point(340, 53);
             this.grpMeeting.Name = "grpMeeting";
             this.grpMeeting.Size = new System.Drawing.Size(484, 67);
             this.grpMeeting.TabIndex = 0;
             this.grpMeeting.TabStop = false;
+            // 
+            // cMeetingTypeS
+            // 
+            this.cMeetingTypeS.AutoSize = true;
+            this.cMeetingTypeS.Enabled = false;
+            this.cMeetingTypeS.Location = new System.Drawing.Point(335, 11);
+            this.cMeetingTypeS.Name = "cMeetingTypeS";
+            this.cMeetingTypeS.Size = new System.Drawing.Size(141, 20);
+            this.cMeetingTypeS.TabIndex = 5;
+            this.cMeetingTypeS.TabStop = true;
+            this.cMeetingTypeS.Text = "ประชุมวิสามัญผู้ถือหุ้น";
+            this.cMeetingTypeS.UseVisualStyleBackColor = true;
+            // 
+            // cMeetingTypeC
+            // 
+            this.cMeetingTypeC.AutoSize = true;
+            this.cMeetingTypeC.Enabled = false;
+            this.cMeetingTypeC.Location = new System.Drawing.Point(167, 11);
+            this.cMeetingTypeC.Name = "cMeetingTypeC";
+            this.cMeetingTypeC.Size = new System.Drawing.Size(135, 20);
+            this.cMeetingTypeC.TabIndex = 4;
+            this.cMeetingTypeC.TabStop = true;
+            this.cMeetingTypeC.Text = "ประชุมสามัญผู้ถือหุ้น";
+            this.cMeetingTypeC.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(18, 42);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(37, 16);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "ครั้งที่";
+            // 
+            // cMeetingTypeE
+            // 
+            this.cMeetingTypeE.AutoSize = true;
+            this.cMeetingTypeE.Enabled = false;
+            this.cMeetingTypeE.Location = new System.Drawing.Point(15, 11);
+            this.cMeetingTypeE.Name = "cMeetingTypeE";
+            this.cMeetingTypeE.Size = new System.Drawing.Size(124, 20);
+            this.cMeetingTypeE.TabIndex = 3;
+            this.cMeetingTypeE.TabStop = true;
+            this.cMeetingTypeE.Text = "ประชุมจัดตั้งบริษัท";
+            this.cMeetingTypeE.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -126,25 +176,6 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "ทะเบียนเลขที่";
             // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(15, 11);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(124, 20);
-            this.radioButton1.TabIndex = 3;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "ประชุมจัดตั้งบริษัท";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // cAccSource
-            // 
-            this.cAccSource.FormattingEnabled = true;
-            this.cAccSource.Location = new System.Drawing.Point(145, 62);
-            this.cAccSource.Name = "cAccSource";
-            this.cAccSource.Size = new System.Drawing.Size(175, 24);
-            this.cAccSource.TabIndex = 2;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -154,32 +185,10 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "ที่มาของรายชื่อผู้ถือหุ้น";
             // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(167, 11);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(135, 20);
-            this.radioButton2.TabIndex = 4;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "ประชุมสามัญผู้ถือหุ้น";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(335, 11);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(141, 20);
-            this.radioButton3.TabIndex = 5;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "ประชุมวิสามัญผู้ถือหุ้น";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 94);
+            this.label4.Location = new System.Drawing.Point(201, 42);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(51, 16);
             this.label4.TabIndex = 1;
@@ -187,56 +196,16 @@
             // 
             // cSourceDate
             // 
-            this.cSourceDate._ReadOnly = false;
+            this.cSourceDate._ReadOnly = true;
             this.cSourceDate._SelectedDate = null;
             this.cSourceDate.BackColor = System.Drawing.Color.White;
             this.cSourceDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.cSourceDate.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cSourceDate.Location = new System.Drawing.Point(145, 90);
+            this.cSourceDate.Location = new System.Drawing.Point(255, 38);
             this.cSourceDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cSourceDate.Name = "cSourceDate";
             this.cSourceDate.Size = new System.Drawing.Size(103, 23);
             this.cSourceDate.TabIndex = 8;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(18, 42);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 16);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "ครั้งที่";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(92, 42);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(13, 16);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "/";
-            // 
-            // xMaskedTextEdit1
-            // 
-            this.xMaskedTextEdit1.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.xMaskedTextEdit1.Location = new System.Drawing.Point(60, 37);
-            this.xMaskedTextEdit1.Mask = "0000";
-            this.xMaskedTextEdit1.Name = "xMaskedTextEdit1";
-            this.xMaskedTextEdit1.PromptChar = ' ';
-            this.xMaskedTextEdit1.Size = new System.Drawing.Size(30, 23);
-            this.xMaskedTextEdit1.TabIndex = 6;
-            this.xMaskedTextEdit1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // cMeetingNo
-            // 
-            this.cMeetingNo.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.cMeetingNo.Location = new System.Drawing.Point(103, 37);
-            this.cMeetingNo.Mask = "0000";
-            this.cMeetingNo.Name = "cMeetingNo";
-            this.cMeetingNo.PromptChar = ' ';
-            this.cMeetingNo.Size = new System.Drawing.Size(53, 23);
-            this.cMeetingNo.TabIndex = 7;
-            this.cMeetingNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label7
             // 
@@ -247,87 +216,87 @@
             this.label7.TabIndex = 1;
             this.label7.Text = "ทุนจดทะเบียน";
             // 
-            // xNumEdit1
+            // cTotalCapital
             // 
-            this.xNumEdit1._BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.xNumEdit1._CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.xNumEdit1._DecimalDigit = 2;
-            this.xNumEdit1._ForeColor = System.Drawing.SystemColors.WindowText;
-            this.xNumEdit1._ForeColorReadOnlyState = System.Drawing.SystemColors.ControlText;
-            this.xNumEdit1._MaximumValue = new decimal(new int[] {
+            this.cTotalCapital._BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cTotalCapital._CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.cTotalCapital._DecimalDigit = 2;
+            this.cTotalCapital._ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cTotalCapital._ForeColorReadOnlyState = System.Drawing.SystemColors.ControlText;
+            this.cTotalCapital._MaximumValue = new decimal(new int[] {
             -1486618625,
             232830643,
             0,
             131072});
-            this.xNumEdit1._MaxLength = 30;
-            this.xNumEdit1._PasswordChar = '\0';
-            this.xNumEdit1._ReadOnly = false;
-            this.xNumEdit1._SelectionLength = 0;
-            this.xNumEdit1._SelectionStart = 4;
-            this.xNumEdit1._Text = "0.00";
-            this.xNumEdit1._TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.xNumEdit1._UseThoundsandSeparate = true;
-            this.xNumEdit1._Value = new decimal(new int[] {
+            this.cTotalCapital._MaxLength = 30;
+            this.cTotalCapital._PasswordChar = '\0';
+            this.cTotalCapital._ReadOnly = true;
+            this.cTotalCapital._SelectionLength = 0;
+            this.cTotalCapital._SelectionStart = 4;
+            this.cTotalCapital._Text = "0.00";
+            this.cTotalCapital._TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.cTotalCapital._UseThoundsandSeparate = true;
+            this.cTotalCapital._Value = new decimal(new int[] {
             0,
             0,
             0,
             131072});
-            this.xNumEdit1.BackColor = System.Drawing.Color.White;
-            this.xNumEdit1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.xNumEdit1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.xNumEdit1.Location = new System.Drawing.Point(145, 138);
-            this.xNumEdit1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.xNumEdit1.Name = "xNumEdit1";
-            this.xNumEdit1.Size = new System.Drawing.Size(136, 23);
-            this.xNumEdit1.TabIndex = 9;
+            this.cTotalCapital.BackColor = System.Drawing.Color.White;
+            this.cTotalCapital.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cTotalCapital.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cTotalCapital.Location = new System.Drawing.Point(157, 138);
+            this.cTotalCapital.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cTotalCapital.Name = "cTotalCapital";
+            this.cTotalCapital.Size = new System.Drawing.Size(136, 23);
+            this.cTotalCapital.TabIndex = 9;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(342, 142);
+            this.label8.Location = new System.Drawing.Point(354, 142);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(74, 16);
             this.label8.TabIndex = 1;
             this.label8.Text = "แบ่งออกเป็น";
             // 
-            // xNumEdit2
+            // cTotalShare
             // 
-            this.xNumEdit2._BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.xNumEdit2._CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.xNumEdit2._DecimalDigit = 0;
-            this.xNumEdit2._ForeColor = System.Drawing.SystemColors.WindowText;
-            this.xNumEdit2._ForeColorReadOnlyState = System.Drawing.SystemColors.ControlText;
-            this.xNumEdit2._MaximumValue = new decimal(new int[] {
+            this.cTotalShare._BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cTotalShare._CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.cTotalShare._DecimalDigit = 0;
+            this.cTotalShare._ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cTotalShare._ForeColorReadOnlyState = System.Drawing.SystemColors.ControlText;
+            this.cTotalShare._MaximumValue = new decimal(new int[] {
             1874919423,
             2328306,
             0,
             0});
-            this.xNumEdit2._MaxLength = 30;
-            this.xNumEdit2._PasswordChar = '\0';
-            this.xNumEdit2._ReadOnly = false;
-            this.xNumEdit2._SelectionLength = 0;
-            this.xNumEdit2._SelectionStart = 1;
-            this.xNumEdit2._Text = "0";
-            this.xNumEdit2._TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.xNumEdit2._UseThoundsandSeparate = true;
-            this.xNumEdit2._Value = new decimal(new int[] {
+            this.cTotalShare._MaxLength = 30;
+            this.cTotalShare._PasswordChar = '\0';
+            this.cTotalShare._ReadOnly = true;
+            this.cTotalShare._SelectionLength = 0;
+            this.cTotalShare._SelectionStart = 1;
+            this.cTotalShare._Text = "0";
+            this.cTotalShare._TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.cTotalShare._UseThoundsandSeparate = true;
+            this.cTotalShare._Value = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.xNumEdit2.BackColor = System.Drawing.Color.White;
-            this.xNumEdit2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.xNumEdit2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.xNumEdit2.Location = new System.Drawing.Point(417, 138);
-            this.xNumEdit2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.xNumEdit2.Name = "xNumEdit2";
-            this.xNumEdit2.Size = new System.Drawing.Size(137, 23);
-            this.xNumEdit2.TabIndex = 10;
+            this.cTotalShare.BackColor = System.Drawing.Color.White;
+            this.cTotalShare.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cTotalShare.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cTotalShare.Location = new System.Drawing.Point(429, 138);
+            this.cTotalShare.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cTotalShare.Name = "cTotalShare";
+            this.cTotalShare.Size = new System.Drawing.Size(137, 23);
+            this.cTotalShare.TabIndex = 10;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(557, 142);
+            this.label9.Location = new System.Drawing.Point(569, 142);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(24, 16);
             this.label9.TabIndex = 1;
@@ -336,7 +305,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(602, 142);
+            this.label10.Location = new System.Drawing.Point(614, 142);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(68, 16);
             this.label10.TabIndex = 1;
@@ -345,69 +314,70 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(770, 142);
+            this.label11.Location = new System.Drawing.Point(782, 142);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(31, 16);
             this.label11.TabIndex = 1;
             this.label11.Text = "บาท";
             // 
-            // xNumEdit3
+            // cParValue
             // 
-            this.xNumEdit3._BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.xNumEdit3._CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.xNumEdit3._DecimalDigit = 2;
-            this.xNumEdit3._ForeColor = System.Drawing.SystemColors.WindowText;
-            this.xNumEdit3._ForeColorReadOnlyState = System.Drawing.SystemColors.ControlText;
-            this.xNumEdit3._MaximumValue = new decimal(new int[] {
+            this.cParValue._BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cParValue._CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.cParValue._DecimalDigit = 2;
+            this.cParValue._ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cParValue._ForeColorReadOnlyState = System.Drawing.SystemColors.ControlText;
+            this.cParValue._MaximumValue = new decimal(new int[] {
             99999999,
             0,
             0,
             131072});
-            this.xNumEdit3._MaxLength = 30;
-            this.xNumEdit3._PasswordChar = '\0';
-            this.xNumEdit3._ReadOnly = false;
-            this.xNumEdit3._SelectionLength = 0;
-            this.xNumEdit3._SelectionStart = 4;
-            this.xNumEdit3._Text = "0.00";
-            this.xNumEdit3._TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.xNumEdit3._UseThoundsandSeparate = true;
-            this.xNumEdit3._Value = new decimal(new int[] {
+            this.cParValue._MaxLength = 30;
+            this.cParValue._PasswordChar = '\0';
+            this.cParValue._ReadOnly = true;
+            this.cParValue._SelectionLength = 0;
+            this.cParValue._SelectionStart = 4;
+            this.cParValue._Text = "0.00";
+            this.cParValue._TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.cParValue._UseThoundsandSeparate = true;
+            this.cParValue._Value = new decimal(new int[] {
             0,
             0,
             0,
             131072});
-            this.xNumEdit3.BackColor = System.Drawing.Color.White;
-            this.xNumEdit3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.xNumEdit3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.xNumEdit3.Location = new System.Drawing.Point(673, 138);
-            this.xNumEdit3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.xNumEdit3.Name = "xNumEdit3";
-            this.xNumEdit3.Size = new System.Drawing.Size(94, 23);
-            this.xNumEdit3.TabIndex = 11;
+            this.cParValue.BackColor = System.Drawing.Color.White;
+            this.cParValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cParValue.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cParValue.Location = new System.Drawing.Point(685, 138);
+            this.cParValue.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cParValue.Name = "cParValue";
+            this.cParValue.Size = new System.Drawing.Size(94, 23);
+            this.cParValue.TabIndex = 11;
             // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.cAccSource);
             this.panel1.Controls.Add(this.btnStop);
-            this.panel1.Controls.Add(this.btnEditSave);
+            this.panel1.Controls.Add(this.btnSave);
+            this.panel1.Controls.Add(this.btnEdit);
             this.panel1.Controls.Add(this.xTextEdit2);
             this.panel1.Controls.Add(this.xTextEdit1);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.cYearEnd);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.xNumEdit3);
+            this.panel1.Controls.Add(this.cParValue);
             this.panel1.Controls.Add(this.grpMeeting);
-            this.panel1.Controls.Add(this.xNumEdit7);
-            this.panel1.Controls.Add(this.xNumEdit5);
-            this.panel1.Controls.Add(this.xNumEdit6);
-            this.panel1.Controls.Add(this.xNumEdit4);
-            this.panel1.Controls.Add(this.xNumEdit2);
+            this.panel1.Controls.Add(this.cTotalForeignShare);
+            this.panel1.Controls.Add(this.cTotalThaiShare);
+            this.panel1.Controls.Add(this.cForeignShareHolder);
+            this.panel1.Controls.Add(this.cThaiShareHolder);
+            this.panel1.Controls.Add(this.cTotalShare);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.xNumEdit1);
+            this.panel1.Controls.Add(this.cTotalCapital);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.cSourceDate);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.cAccSource);
             this.panel1.Controls.Add(this.label21);
             this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.label20);
@@ -425,39 +395,73 @@
             this.panel1.Controls.Add(this.label10);
             this.panel1.Location = new System.Drawing.Point(12, 13);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(927, 258);
+            this.panel1.Size = new System.Drawing.Size(980, 258);
             this.panel1.TabIndex = 5;
             // 
-            // label12
+            // cAccSource
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(284, 142);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(31, 16);
-            this.label12.TabIndex = 1;
-            this.label12.Text = "บาท";
+            this.cAccSource._DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cAccSource._DroppedDown = false;
+            this.cAccSource._ReadOnly = true;
+            this.cAccSource._SelectedItem = null;
+            this.cAccSource._Text = "";
+            this.cAccSource.BackColor = System.Drawing.Color.White;
+            this.cAccSource.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cAccSource.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cAccSource.Location = new System.Drawing.Point(157, 62);
+            this.cAccSource.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cAccSource.Name = "cAccSource";
+            this.cAccSource.Size = new System.Drawing.Size(175, 23);
+            this.cAccSource.TabIndex = 18;
+            this.cAccSource.TabStop = false;
             // 
-            // xTextEdit1
+            // btnStop
             // 
-            this.xTextEdit1._BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.xTextEdit1._CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.xTextEdit1._ForeColor = System.Drawing.SystemColors.WindowText;
-            this.xTextEdit1._MaxLength = 32767;
-            this.xTextEdit1._PasswordChar = '\0';
-            this.xTextEdit1._ReadOnly = true;
-            this.xTextEdit1._SelectionLength = 0;
-            this.xTextEdit1._SelectionStart = 0;
-            this.xTextEdit1._Text = "";
-            this.xTextEdit1._TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.xTextEdit1.BackColor = System.Drawing.Color.White;
-            this.xTextEdit1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.xTextEdit1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.xTextEdit1.Location = new System.Drawing.Point(145, 8);
-            this.xTextEdit1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.xTextEdit1.Name = "xTextEdit1";
-            this.xTextEdit1.Size = new System.Drawing.Size(409, 23);
-            this.xTextEdit1.TabIndex = 0;
-            this.xTextEdit1.TabStop = false;
+            this.btnStop.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnStop.Enabled = false;
+            this.btnStop.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.btnStop.Image = global::Express_e_Filing.Properties.Resources.stop_16;
+            this.btnStop.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStop.Location = new System.Drawing.Point(524, 215);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.btnStop.Size = new System.Drawing.Size(132, 27);
+            this.btnStop.TabIndex = 17;
+            this.btnStop.Text = "ยกเลิกการแก้ไข";
+            this.btnStop.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnSave.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.btnSave.Image = global::Express_e_Filing.Properties.Resources.save_16;
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSave.Location = new System.Drawing.Point(444, 215);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.btnSave.Size = new System.Drawing.Size(76, 27);
+            this.btnSave.TabIndex = 16;
+            this.btnSave.Text = "บันทึก";
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSave.UseVisualStyleBackColor = true;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnEdit.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.btnEdit.Image = global::Express_e_Filing.Properties.Resources.edit_16;
+            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEdit.Location = new System.Drawing.Point(334, 215);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.btnEdit.Size = new System.Drawing.Size(76, 27);
+            this.btnEdit.TabIndex = 16;
+            this.btnEdit.Text = "แก้ไข";
+            this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // xTextEdit2
             // 
@@ -474,12 +478,240 @@
             this.xTextEdit2.BackColor = System.Drawing.Color.White;
             this.xTextEdit2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.xTextEdit2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.xTextEdit2.Location = new System.Drawing.Point(145, 35);
+            this.xTextEdit2.Location = new System.Drawing.Point(157, 35);
             this.xTextEdit2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.xTextEdit2.Name = "xTextEdit2";
             this.xTextEdit2.Size = new System.Drawing.Size(175, 23);
             this.xTextEdit2.TabIndex = 1;
-            this.xTextEdit2.TabStop = false;
+            // 
+            // xTextEdit1
+            // 
+            this.xTextEdit1._BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.xTextEdit1._CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.xTextEdit1._ForeColor = System.Drawing.SystemColors.WindowText;
+            this.xTextEdit1._MaxLength = 32767;
+            this.xTextEdit1._PasswordChar = '\0';
+            this.xTextEdit1._ReadOnly = true;
+            this.xTextEdit1._SelectionLength = 0;
+            this.xTextEdit1._SelectionStart = 0;
+            this.xTextEdit1._Text = "";
+            this.xTextEdit1._TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.xTextEdit1.BackColor = System.Drawing.Color.White;
+            this.xTextEdit1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.xTextEdit1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.xTextEdit1.Location = new System.Drawing.Point(157, 8);
+            this.xTextEdit1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.xTextEdit1.Name = "xTextEdit1";
+            this.xTextEdit1.Size = new System.Drawing.Size(409, 23);
+            this.xTextEdit1.TabIndex = 0;
+            // 
+            // cTotalForeignShare
+            // 
+            this.cTotalForeignShare._BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cTotalForeignShare._CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.cTotalForeignShare._DecimalDigit = 0;
+            this.cTotalForeignShare._ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cTotalForeignShare._ForeColorReadOnlyState = System.Drawing.SystemColors.ControlText;
+            this.cTotalForeignShare._MaximumValue = new decimal(new int[] {
+            1874919423,
+            2328306,
+            0,
+            0});
+            this.cTotalForeignShare._MaxLength = 30;
+            this.cTotalForeignShare._PasswordChar = '\0';
+            this.cTotalForeignShare._ReadOnly = true;
+            this.cTotalForeignShare._SelectionLength = 0;
+            this.cTotalForeignShare._SelectionStart = 1;
+            this.cTotalForeignShare._Text = "0";
+            this.cTotalForeignShare._TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.cTotalForeignShare._UseThoundsandSeparate = true;
+            this.cTotalForeignShare._Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.cTotalForeignShare.BackColor = System.Drawing.Color.White;
+            this.cTotalForeignShare.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cTotalForeignShare.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cTotalForeignShare.Location = new System.Drawing.Point(669, 172);
+            this.cTotalForeignShare.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cTotalForeignShare.Name = "cTotalForeignShare";
+            this.cTotalForeignShare.Size = new System.Drawing.Size(65, 23);
+            this.cTotalForeignShare.TabIndex = 15;
+            // 
+            // cTotalThaiShare
+            // 
+            this.cTotalThaiShare._BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cTotalThaiShare._CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.cTotalThaiShare._DecimalDigit = 0;
+            this.cTotalThaiShare._ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cTotalThaiShare._ForeColorReadOnlyState = System.Drawing.SystemColors.ControlText;
+            this.cTotalThaiShare._MaximumValue = new decimal(new int[] {
+            1874919423,
+            2328306,
+            0,
+            0});
+            this.cTotalThaiShare._MaxLength = 30;
+            this.cTotalThaiShare._PasswordChar = '\0';
+            this.cTotalThaiShare._ReadOnly = true;
+            this.cTotalThaiShare._SelectionLength = 0;
+            this.cTotalThaiShare._SelectionStart = 1;
+            this.cTotalThaiShare._Text = "0";
+            this.cTotalThaiShare._TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.cTotalThaiShare._UseThoundsandSeparate = true;
+            this.cTotalThaiShare._Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.cTotalThaiShare.BackColor = System.Drawing.Color.White;
+            this.cTotalThaiShare.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cTotalThaiShare.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cTotalThaiShare.Location = new System.Drawing.Point(338, 172);
+            this.cTotalThaiShare.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cTotalThaiShare.Name = "cTotalThaiShare";
+            this.cTotalThaiShare.Size = new System.Drawing.Size(65, 23);
+            this.cTotalThaiShare.TabIndex = 13;
+            // 
+            // cForeignShareHolder
+            // 
+            this.cForeignShareHolder._BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cForeignShareHolder._CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.cForeignShareHolder._DecimalDigit = 0;
+            this.cForeignShareHolder._ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cForeignShareHolder._ForeColorReadOnlyState = System.Drawing.SystemColors.ControlText;
+            this.cForeignShareHolder._MaximumValue = new decimal(new int[] {
+            1874919423,
+            2328306,
+            0,
+            0});
+            this.cForeignShareHolder._MaxLength = 30;
+            this.cForeignShareHolder._PasswordChar = '\0';
+            this.cForeignShareHolder._ReadOnly = true;
+            this.cForeignShareHolder._SelectionLength = 0;
+            this.cForeignShareHolder._SelectionStart = 1;
+            this.cForeignShareHolder._Text = "0";
+            this.cForeignShareHolder._TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.cForeignShareHolder._UseThoundsandSeparate = true;
+            this.cForeignShareHolder._Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.cForeignShareHolder.BackColor = System.Drawing.Color.White;
+            this.cForeignShareHolder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cForeignShareHolder.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cForeignShareHolder.Location = new System.Drawing.Point(525, 172);
+            this.cForeignShareHolder.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cForeignShareHolder.Name = "cForeignShareHolder";
+            this.cForeignShareHolder.Size = new System.Drawing.Size(65, 23);
+            this.cForeignShareHolder.TabIndex = 14;
+            // 
+            // cThaiShareHolder
+            // 
+            this.cThaiShareHolder._BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cThaiShareHolder._CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.cThaiShareHolder._DecimalDigit = 0;
+            this.cThaiShareHolder._ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cThaiShareHolder._ForeColorReadOnlyState = System.Drawing.SystemColors.ControlText;
+            this.cThaiShareHolder._MaximumValue = new decimal(new int[] {
+            1874919423,
+            2328306,
+            0,
+            0});
+            this.cThaiShareHolder._MaxLength = 30;
+            this.cThaiShareHolder._PasswordChar = '\0';
+            this.cThaiShareHolder._ReadOnly = true;
+            this.cThaiShareHolder._SelectionLength = 0;
+            this.cThaiShareHolder._SelectionStart = 1;
+            this.cThaiShareHolder._Text = "0";
+            this.cThaiShareHolder._TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.cThaiShareHolder._UseThoundsandSeparate = true;
+            this.cThaiShareHolder._Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.cThaiShareHolder.BackColor = System.Drawing.Color.White;
+            this.cThaiShareHolder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cThaiShareHolder.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cThaiShareHolder.Location = new System.Drawing.Point(194, 172);
+            this.cThaiShareHolder.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cThaiShareHolder.Name = "cThaiShareHolder";
+            this.cThaiShareHolder.Size = new System.Drawing.Size(65, 23);
+            this.cThaiShareHolder.TabIndex = 12;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(593, 176);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(24, 16);
+            this.label21.TabIndex = 1;
+            this.label21.Text = "คน";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(262, 176);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(24, 16);
+            this.label15.TabIndex = 1;
+            this.label15.Text = "คน";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(737, 176);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(24, 16);
+            this.label20.TabIndex = 1;
+            this.label20.Text = "หุ้น";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(406, 176);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(24, 16);
+            this.label17.TabIndex = 1;
+            this.label17.Text = "หุ้น";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(624, 176);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(43, 16);
+            this.label19.TabIndex = 1;
+            this.label19.Text = "จำนวน";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(292, 176);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(43, 16);
+            this.label16.TabIndex = 1;
+            this.label16.Text = "จำนวน";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(487, 176);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(34, 16);
+            this.label18.TabIndex = 1;
+            this.label18.Text = "อื่น ๆ";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(159, 176);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(32, 16);
+            this.label14.TabIndex = 1;
+            this.label14.Text = "ไทย";
             // 
             // label13
             // 
@@ -490,213 +722,14 @@
             this.label13.TabIndex = 1;
             this.label13.Text = "ผู้ถือหุ้น";
             // 
-            // label14
+            // label12
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(147, 176);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(32, 16);
-            this.label14.TabIndex = 1;
-            this.label14.Text = "ไทย";
-            // 
-            // xNumEdit4
-            // 
-            this.xNumEdit4._BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.xNumEdit4._CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.xNumEdit4._DecimalDigit = 0;
-            this.xNumEdit4._ForeColor = System.Drawing.SystemColors.WindowText;
-            this.xNumEdit4._ForeColorReadOnlyState = System.Drawing.SystemColors.ControlText;
-            this.xNumEdit4._MaximumValue = new decimal(new int[] {
-            1874919423,
-            2328306,
-            0,
-            0});
-            this.xNumEdit4._MaxLength = 30;
-            this.xNumEdit4._PasswordChar = '\0';
-            this.xNumEdit4._ReadOnly = false;
-            this.xNumEdit4._SelectionLength = 0;
-            this.xNumEdit4._SelectionStart = 1;
-            this.xNumEdit4._Text = "0";
-            this.xNumEdit4._TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.xNumEdit4._UseThoundsandSeparate = true;
-            this.xNumEdit4._Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.xNumEdit4.BackColor = System.Drawing.Color.White;
-            this.xNumEdit4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.xNumEdit4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.xNumEdit4.Location = new System.Drawing.Point(182, 172);
-            this.xNumEdit4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.xNumEdit4.Name = "xNumEdit4";
-            this.xNumEdit4.Size = new System.Drawing.Size(65, 23);
-            this.xNumEdit4.TabIndex = 12;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(250, 176);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(24, 16);
-            this.label15.TabIndex = 1;
-            this.label15.Text = "คน";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(280, 176);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(43, 16);
-            this.label16.TabIndex = 1;
-            this.label16.Text = "จำนวน";
-            // 
-            // xNumEdit5
-            // 
-            this.xNumEdit5._BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.xNumEdit5._CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.xNumEdit5._DecimalDigit = 0;
-            this.xNumEdit5._ForeColor = System.Drawing.SystemColors.WindowText;
-            this.xNumEdit5._ForeColorReadOnlyState = System.Drawing.SystemColors.ControlText;
-            this.xNumEdit5._MaximumValue = new decimal(new int[] {
-            1874919423,
-            2328306,
-            0,
-            0});
-            this.xNumEdit5._MaxLength = 30;
-            this.xNumEdit5._PasswordChar = '\0';
-            this.xNumEdit5._ReadOnly = false;
-            this.xNumEdit5._SelectionLength = 0;
-            this.xNumEdit5._SelectionStart = 1;
-            this.xNumEdit5._Text = "0";
-            this.xNumEdit5._TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.xNumEdit5._UseThoundsandSeparate = true;
-            this.xNumEdit5._Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.xNumEdit5.BackColor = System.Drawing.Color.White;
-            this.xNumEdit5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.xNumEdit5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.xNumEdit5.Location = new System.Drawing.Point(326, 172);
-            this.xNumEdit5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.xNumEdit5.Name = "xNumEdit5";
-            this.xNumEdit5.Size = new System.Drawing.Size(65, 23);
-            this.xNumEdit5.TabIndex = 13;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(394, 176);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(24, 16);
-            this.label17.TabIndex = 1;
-            this.label17.Text = "หุ้น";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(475, 176);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(34, 16);
-            this.label18.TabIndex = 1;
-            this.label18.Text = "อื่น ๆ";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(612, 176);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(43, 16);
-            this.label19.TabIndex = 1;
-            this.label19.Text = "จำนวน";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(725, 176);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(24, 16);
-            this.label20.TabIndex = 1;
-            this.label20.Text = "หุ้น";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(581, 176);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(24, 16);
-            this.label21.TabIndex = 1;
-            this.label21.Text = "คน";
-            // 
-            // xNumEdit6
-            // 
-            this.xNumEdit6._BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.xNumEdit6._CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.xNumEdit6._DecimalDigit = 0;
-            this.xNumEdit6._ForeColor = System.Drawing.SystemColors.WindowText;
-            this.xNumEdit6._ForeColorReadOnlyState = System.Drawing.SystemColors.ControlText;
-            this.xNumEdit6._MaximumValue = new decimal(new int[] {
-            1874919423,
-            2328306,
-            0,
-            0});
-            this.xNumEdit6._MaxLength = 30;
-            this.xNumEdit6._PasswordChar = '\0';
-            this.xNumEdit6._ReadOnly = false;
-            this.xNumEdit6._SelectionLength = 0;
-            this.xNumEdit6._SelectionStart = 1;
-            this.xNumEdit6._Text = "0";
-            this.xNumEdit6._TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.xNumEdit6._UseThoundsandSeparate = true;
-            this.xNumEdit6._Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.xNumEdit6.BackColor = System.Drawing.Color.White;
-            this.xNumEdit6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.xNumEdit6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.xNumEdit6.Location = new System.Drawing.Point(513, 172);
-            this.xNumEdit6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.xNumEdit6.Name = "xNumEdit6";
-            this.xNumEdit6.Size = new System.Drawing.Size(65, 23);
-            this.xNumEdit6.TabIndex = 14;
-            // 
-            // xNumEdit7
-            // 
-            this.xNumEdit7._BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.xNumEdit7._CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.xNumEdit7._DecimalDigit = 0;
-            this.xNumEdit7._ForeColor = System.Drawing.SystemColors.WindowText;
-            this.xNumEdit7._ForeColorReadOnlyState = System.Drawing.SystemColors.ControlText;
-            this.xNumEdit7._MaximumValue = new decimal(new int[] {
-            1874919423,
-            2328306,
-            0,
-            0});
-            this.xNumEdit7._MaxLength = 30;
-            this.xNumEdit7._PasswordChar = '\0';
-            this.xNumEdit7._ReadOnly = false;
-            this.xNumEdit7._SelectionLength = 0;
-            this.xNumEdit7._SelectionStart = 1;
-            this.xNumEdit7._Text = "0";
-            this.xNumEdit7._TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.xNumEdit7._UseThoundsandSeparate = true;
-            this.xNumEdit7._Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.xNumEdit7.BackColor = System.Drawing.Color.White;
-            this.xNumEdit7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.xNumEdit7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.xNumEdit7.Location = new System.Drawing.Point(657, 172);
-            this.xNumEdit7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.xNumEdit7.Name = "xNumEdit7";
-            this.xNumEdit7.Size = new System.Drawing.Size(65, 23);
-            this.xNumEdit7.TabIndex = 15;
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(296, 142);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(31, 16);
+            this.label12.TabIndex = 1;
+            this.label12.Text = "บาท";
             // 
             // tabControl1
             // 
@@ -704,21 +737,52 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Location = new System.Drawing.Point(12, 285);
+            this.tabControl1.ItemSize = new System.Drawing.Size(88, 21);
+            this.tabControl1.Location = new System.Drawing.Point(12, 279);
+            this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
+            this.tabControl1.Padding = new System.Drawing.Point(8, 3);
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(927, 275);
+            this.tabControl1.Size = new System.Drawing.Size(980, 301);
             this.tabControl1.TabIndex = 6;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.dgv);
+            this.tabPage1.Controls.Add(this.btnDeleteItem);
+            this.tabPage1.Controls.Add(this.panel2);
+            this.tabPage1.Controls.Add(this.btnEditItem);
+            this.tabPage1.Controls.Add(this.btnAddItem);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(919, 246);
+            this.tabPage1.Size = new System.Drawing.Size(972, 272);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "รายชื่อผู้ถือหุ้น";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btnDeleteItem
+            // 
+            this.btnDeleteItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDeleteItem.Image = global::Express_e_Filing.Properties.Resources.cancel_12;
+            this.btnDeleteItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteItem.Location = new System.Drawing.Point(910, 5);
+            this.btnDeleteItem.Name = "btnDeleteItem";
+            this.btnDeleteItem.Size = new System.Drawing.Size(57, 24);
+            this.btnDeleteItem.TabIndex = 20;
+            this.btnDeleteItem.Text = "ลบ";
+            this.btnDeleteItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDeleteItem.UseVisualStyleBackColor = true;
+            this.btnDeleteItem.Click += new System.EventHandler(this.btnDeleteItem_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.dgv);
+            this.panel2.Location = new System.Drawing.Point(4, 33);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(965, 235);
+            this.panel2.TabIndex = 1;
             // 
             // dgv
             // 
@@ -767,31 +831,9 @@
             this.dgv.RowHeadersVisible = false;
             this.dgv.RowTemplate.Height = 26;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(919, 246);
+            this.dgv.Size = new System.Drawing.Size(965, 235);
             this.dgv.StandardTab = true;
             this.dgv.TabIndex = 0;
-            // 
-            // btnEditSave
-            // 
-            this.btnEditSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnEditSave.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.btnEditSave.Location = new System.Drawing.Point(348, 215);
-            this.btnEditSave.Name = "btnEditSave";
-            this.btnEditSave.Size = new System.Drawing.Size(113, 27);
-            this.btnEditSave.TabIndex = 16;
-            this.btnEditSave.Text = "แก้ไข";
-            this.btnEditSave.UseVisualStyleBackColor = true;
-            // 
-            // btnStop
-            // 
-            this.btnStop.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnStop.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.btnStop.Location = new System.Drawing.Point(464, 215);
-            this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(113, 27);
-            this.btnStop.TabIndex = 17;
-            this.btnStop.Text = "ยกเลิกการแก้ไข";
-            this.btnStop.UseVisualStyleBackColor = true;
             // 
             // col_itemNo
             // 
@@ -855,53 +897,93 @@
             this.col_boj5detail.ReadOnly = true;
             this.col_boj5detail.Visible = false;
             // 
-            // btnAddItem
-            // 
-            this.btnAddItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddItem.Image = global::Express_e_Filing.Properties.Resources.add_16;
-            this.btnAddItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddItem.Location = new System.Drawing.Point(744, 283);
-            this.btnAddItem.Name = "btnAddItem";
-            this.btnAddItem.Size = new System.Drawing.Size(57, 24);
-            this.btnAddItem.TabIndex = 18;
-            this.btnAddItem.Text = "เพิ่ม";
-            this.btnAddItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAddItem.UseVisualStyleBackColor = true;
-            // 
             // btnEditItem
             // 
             this.btnEditItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEditItem.Image = global::Express_e_Filing.Properties.Resources.edit_16;
             this.btnEditItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditItem.Location = new System.Drawing.Point(807, 283);
+            this.btnEditItem.Location = new System.Drawing.Point(840, 5);
             this.btnEditItem.Name = "btnEditItem";
             this.btnEditItem.Size = new System.Drawing.Size(64, 24);
             this.btnEditItem.TabIndex = 19;
             this.btnEditItem.Text = "แก้ไข";
             this.btnEditItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEditItem.UseVisualStyleBackColor = true;
+            this.btnEditItem.Click += new System.EventHandler(this.btnEditItem_Click);
             // 
-            // btnDeleteItem
+            // btnAddItem
             // 
-            this.btnDeleteItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDeleteItem.Image = global::Express_e_Filing.Properties.Resources.cancel_12;
-            this.btnDeleteItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteItem.Location = new System.Drawing.Point(877, 283);
-            this.btnDeleteItem.Name = "btnDeleteItem";
-            this.btnDeleteItem.Size = new System.Drawing.Size(57, 24);
-            this.btnDeleteItem.TabIndex = 20;
-            this.btnDeleteItem.Text = "ลบ";
-            this.btnDeleteItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDeleteItem.UseVisualStyleBackColor = true;
+            this.btnAddItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddItem.Image = global::Express_e_Filing.Properties.Resources.add_16;
+            this.btnAddItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddItem.Location = new System.Drawing.Point(777, 5);
+            this.btnAddItem.Name = "btnAddItem";
+            this.btnAddItem.Size = new System.Drawing.Size(57, 24);
+            this.btnAddItem.TabIndex = 18;
+            this.btnAddItem.Text = "เพิ่ม";
+            this.btnAddItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAddItem.UseVisualStyleBackColor = true;
+            this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label22.ForeColor = System.Drawing.Color.DimGray;
+            this.label22.Location = new System.Drawing.Point(127, 42);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(45, 13);
+            this.label22.TabIndex = 1;
+            this.label22.Text = "0/ปปปป";
+            // 
+            // cYearEnd
+            // 
+            this.cYearEnd._ReadOnly = true;
+            this.cYearEnd._SelectedDate = null;
+            this.cYearEnd.BackColor = System.Drawing.Color.White;
+            this.cYearEnd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cYearEnd.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cYearEnd.Location = new System.Drawing.Point(157, 89);
+            this.cYearEnd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cYearEnd.Name = "cYearEnd";
+            this.cYearEnd.Size = new System.Drawing.Size(103, 23);
+            this.cYearEnd.TabIndex = 8;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(13, 93);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(141, 16);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "วันที่สิ้นสุดปีบัญชีของงบฯ";
+            // 
+            // cMeetingNo
+            // 
+            this.cMeetingNo._BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cMeetingNo._CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.cMeetingNo._ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cMeetingNo._MaxLength = 32767;
+            this.cMeetingNo._PasswordChar = '\0';
+            this.cMeetingNo._ReadOnly = true;
+            this.cMeetingNo._SelectionLength = 0;
+            this.cMeetingNo._SelectionStart = 0;
+            this.cMeetingNo._Text = "";
+            this.cMeetingNo._TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.cMeetingNo.BackColor = System.Drawing.Color.White;
+            this.cMeetingNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cMeetingNo.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cMeetingNo.Location = new System.Drawing.Point(57, 38);
+            this.cMeetingNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cMeetingNo.Name = "cMeetingNo";
+            this.cMeetingNo.Size = new System.Drawing.Size(69, 23);
+            this.cMeetingNo.TabIndex = 1;
             // 
             // DialogShareHolders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(951, 572);
-            this.Controls.Add(this.btnDeleteItem);
-            this.Controls.Add(this.btnEditItem);
-            this.Controls.Add(this.btnAddItem);
+            this.ClientSize = new System.Drawing.Size(1004, 592);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
@@ -914,12 +996,14 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "บัญชีรายชื่อผู้ถือหุ้น";
+            this.Load += new System.EventHandler(this.DialogShareHolders_Load);
             this.grpMeeting.ResumeLayout(false);
             this.grpMeeting.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);
 
@@ -928,35 +1012,31 @@
         #endregion
 
         private System.Windows.Forms.GroupBox grpMeeting;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton cMeetingTypeS;
+        private System.Windows.Forms.RadioButton cMeetingTypeC;
+        private System.Windows.Forms.RadioButton cMeetingTypeE;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cAccSource;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private CC.XDatePicker cSourceDate;
-        private CC.XMaskedTextEdit cMeetingNo;
-        private CC.XMaskedTextEdit xMaskedTextEdit1;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
-        private CC.XNumEdit xNumEdit1;
+        private CC.XNumEdit cTotalCapital;
         private System.Windows.Forms.Label label8;
-        private CC.XNumEdit xNumEdit2;
+        private CC.XNumEdit cTotalShare;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private CC.XNumEdit xNumEdit3;
+        private CC.XNumEdit cParValue;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label12;
         private CC.XTextEdit xTextEdit2;
         private CC.XTextEdit xTextEdit1;
-        private CC.XNumEdit xNumEdit7;
-        private CC.XNumEdit xNumEdit5;
-        private CC.XNumEdit xNumEdit6;
-        private CC.XNumEdit xNumEdit4;
+        private CC.XNumEdit cTotalForeignShare;
+        private CC.XNumEdit cTotalThaiShare;
+        private CC.XNumEdit cForeignShareHolder;
+        private CC.XNumEdit cThaiShareHolder;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label20;
@@ -970,7 +1050,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private CC.XDatagrid dgv;
         private System.Windows.Forms.Button btnStop;
-        private System.Windows.Forms.Button btnEditSave;
+        private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_itemNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_holderName;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_shareNumber;
@@ -983,5 +1063,12 @@
         private System.Windows.Forms.Button btnAddItem;
         private System.Windows.Forms.Button btnEditItem;
         private System.Windows.Forms.Button btnDeleteItem;
+        private System.Windows.Forms.Panel panel2;
+        private CC.XDropdownList cAccSource;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label6;
+        private CC.XDatePicker cYearEnd;
+        private CC.XTextEdit cMeetingNo;
     }
 }

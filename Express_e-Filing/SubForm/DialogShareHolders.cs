@@ -16,8 +16,8 @@ namespace Express_e_Filing.SubForm
     {
         private MainForm main_form;
         private FORM_MODE form_mode = FORM_MODE.READ;
-        private boj5_header boj5_header;
-        private List<boj5_person> boj5_detail;
+        //private boj5_header boj5_header;
+        //private List<boj5_person> boj5_detail;
         //private BindingList<>
         private enum MEETING_TYPE
         {
@@ -85,41 +85,53 @@ namespace Express_e_Filing.SubForm
         {
             using (SQLiteDbContext db = new SQLiteDbContext(this.main_form.selected_comp))
             {
-                this.boj5_header = db.boj5_header.ToList().FirstOrDefault();
-                this.boj5_detail = db.boj5_person.ToList();
+                //this.boj5_header = db.boj5_header.ToList().FirstOrDefault();
+                //this.boj5_detail = db.boj5_person.ToList();
             }
         }
 
         private void FillForm()
         {
-            if(this.boj5_header != null)
-            {
-                var selected_accsource = this.cAccSource._Items.Cast<XDropdownListItem>().Where(i => (string)i.Value == this.boj5_header.accSource).FirstOrDefault();
-                if (selected_accsource != null)
-                    this.cAccSource._SelectedItem = selected_accsource;
+            //if(this.boj5_header != null)
+            //{
+            //    var selected_accsource = this.cAccSource._Items.Cast<XDropdownListItem>().Where(i => (string)i.Value == this.boj5_header.accSource).FirstOrDefault();
+            //    if (selected_accsource != null)
+            //        this.cAccSource._SelectedItem = selected_accsource;
 
-                this.cSourceDate._SelectedDate = boj5_header.sourceDate;
-                this.cYearEnd._SelectedDate = boj5_header.yearEnd;
-                this.cTotalCapital._Value = boj5_header.totalCapital;
-                this.cTotalShare._Value = boj5_header.totalShare;
-                this.cParValue._Value = boj5_header.parValue;
-                this.cThaiShareHolder._Value = boj5_header.thaiShareholder;
-                this.cTotalThaiShare._Value = boj5_header.totalThaiShare;
-                this.cForeignShareHolder._Value = boj5_header.foreignShareholder;
-                this.cTotalForeignShare._Value = boj5_header.totalForeignShare;
-                this.cMeetingTypeE.Checked = boj5_header.meetingType == MEETING_TYPE.E.ToString() ? true : false;
-                this.cMeetingTypeC.Checked = boj5_header.meetingType == MEETING_TYPE.C.ToString() ? true : false;
-                this.cMeetingTypeS.Checked = boj5_header.meetingType == MEETING_TYPE.S.ToString() ? true : false;
-                this.cMeetingNo.Text = boj5_header.meetingNo;
+            //    this.cSourceDate._SelectedDate = boj5_header.sourceDate;
+            //    this.cYearEnd._SelectedDate = boj5_header.yearEnd;
+            //    this.cTotalCapital._Value = boj5_header.totalCapital;
+            //    this.cTotalShare._Value = boj5_header.totalShare;
+            //    this.cParValue._Value = boj5_header.parValue;
+            //    this.cThaiShareHolder._Value = boj5_header.thaiShareholder;
+            //    this.cTotalThaiShare._Value = boj5_header.totalThaiShare;
+            //    this.cForeignShareHolder._Value = boj5_header.foreignShareholder;
+            //    this.cTotalForeignShare._Value = boj5_header.totalForeignShare;
+            //    this.cMeetingTypeE.Checked = boj5_header.meetingType == MEETING_TYPE.E.ToString() ? true : false;
+            //    this.cMeetingTypeC.Checked = boj5_header.meetingType == MEETING_TYPE.C.ToString() ? true : false;
+            //    this.cMeetingTypeS.Checked = boj5_header.meetingType == MEETING_TYPE.S.ToString() ? true : false;
+            //    this.cMeetingNo.Text = boj5_header.meetingNo;
                 
-            }
+            //}
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            this.ResetFormState(FORM_MODE.EDIT);
-            this.cAccSource.Focus();
+            //this.ResetFormState(FORM_MODE.EDIT);
+            //this.cAccSource.Focus();
 
+            using (LocalDbEntities db = DBX.DataSet(this.main_form.selected_comp))
+            {
+                db.glacc_match.Add(new glacc_match { accnum = "1234-56", depcod = "ขาย 2", taxodesc = "TAXO 1", taxodesc2 = "TAXO 2" });
+                db.boj5_person.Add(new boj5_person { holderName = "วีรวัฒน์ ตรุเจตนารมย์", addrFull = "kanasiri" });
+                db.boj5_person.Add(new boj5_person { holderName = "รฐา ตรุเจตนารมย์", addrFull = "kanasiri" });
+                db.SaveChanges();
+                var a = db.glacc_match.ToList();
+                var b = db.boj5_detail.ToList();
+                var c = db.boj5_header.ToList();
+                var d = db.boj5_person.ToList();
+                Console.WriteLine(" ==> ok");
+            }
         }
 
         private void btnStop_Click(object sender, EventArgs e)

@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LocalDbModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=D:\Express\ExpressI\87\TAXONOMY.RDB" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="boj5_detail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="itemNo" Type="integer" />
+          <Property Name="userId" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="shareNumber" Type="integer" />
+          <Property Name="shareType" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="paidAmount" Type="real" />
+          <Property Name="asPaidAmount" Type="real" />
+          <Property Name="shareDocId" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="shareDocDate" Type="datetime" />
+          <Property Name="shareRegExist" Type="datetime" />
+          <Property Name="shareRegOmit" Type="datetime" />
+          <Property Name="boj5_person_id" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityType Name="boj5_header">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userId" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="accSource" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="meetingType" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="meetingNo" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="sourceDate" Type="datetime" />
+          <Property Name="totalCapital" Type="real" />
+          <Property Name="totalShare" Type="integer" />
+          <Property Name="parValue" Type="real" />
+          <Property Name="thaiShareholder" Type="integer" />
+          <Property Name="totalThaiShare" Type="integer" />
+          <Property Name="foreignShareholder" Type="integer" />
+          <Property Name="totalForeignShare" Type="integer" />
+          <Property Name="headerStatus" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="yearEnd" Type="datetime" />
+        </EntityType>
+        <EntityType Name="boj5_person">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="addrForeign" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="addrFull" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="addrNo" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="amphur" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="holderName" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="itemSeq" Type="integer" />
+          <Property Name="moo" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="nationality" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="occupation" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="province" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="road" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="shId" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="shType" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="soi" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="surname" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="title" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="tumbol" Type="nvarchar" MaxLength="2147483647" />
+        </EntityType>
+        <EntityType Name="glacc_match">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="accnum" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="depcod" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="taxodesc" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="taxodesc2" Type="nvarchar" MaxLength="2147483647" />
+        </EntityType>
+        <Association Name="FK_boj5_detail_0_0">
+          <End Role="boj5_person" Type="Self.boj5_person" Multiplicity="1" />
+          <End Role="boj5_detail" Type="Self.boj5_detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="boj5_person">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="boj5_detail">
+              <PropertyRef Name="boj5_person_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LocalDbModelStoreContainer">
+          <EntitySet Name="boj5_detail" EntityType="Self.boj5_detail" store:Type="Tables" />
+          <EntitySet Name="boj5_header" EntityType="Self.boj5_header" store:Type="Tables" />
+          <EntitySet Name="boj5_person" EntityType="Self.boj5_person" store:Type="Tables" />
+          <EntitySet Name="glacc_match" EntityType="Self.glacc_match" store:Type="Tables" />
+          <AssociationSet Name="FK_boj5_detail_0_0" Association="Self.FK_boj5_detail_0_0">
+            <End Role="boj5_person" EntitySet="boj5_person" />
+            <End Role="boj5_detail" EntitySet="boj5_detail" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LocalDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="boj5_detail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="itemNo" Type="Int64" />
+          <Property Name="userId" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="shareNumber" Type="Int64" />
+          <Property Name="shareType" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="paidAmount" Type="Double" />
+          <Property Name="asPaidAmount" Type="Double" />
+          <Property Name="shareDocId" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="shareDocDate" Type="DateTime" />
+          <Property Name="shareRegExist" Type="DateTime" />
+          <Property Name="shareRegOmit" Type="DateTime" />
+          <Property Name="boj5_person_id" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="boj5_person" Relationship="Self.FK_boj5_detail_0_0" FromRole="boj5_detail" ToRole="boj5_person" />
+        </EntityType>
+        <EntityType Name="boj5_header">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="accSource" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="meetingType" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="meetingNo" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="sourceDate" Type="DateTime" />
+          <Property Name="totalCapital" Type="Double" />
+          <Property Name="totalShare" Type="Int64" />
+          <Property Name="parValue" Type="Double" />
+          <Property Name="thaiShareholder" Type="Int64" />
+          <Property Name="totalThaiShare" Type="Int64" />
+          <Property Name="foreignShareholder" Type="Int64" />
+          <Property Name="totalForeignShare" Type="Int64" />
+          <Property Name="headerStatus" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="yearEnd" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="boj5_person">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="addrForeign" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="addrFull" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="addrNo" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="amphur" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="holderName" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="itemSeq" Type="Int64" />
+          <Property Name="moo" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="nationality" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="occupation" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="province" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="road" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="shId" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="shType" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="soi" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="surname" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="title" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="tumbol" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="boj5_detail" Relationship="Self.FK_boj5_detail_0_0" FromRole="boj5_person" ToRole="boj5_detail" />
+        </EntityType>
+        <EntityType Name="glacc_match">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="accnum" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="depcod" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="taxodesc" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="taxodesc2" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_boj5_detail_0_0">
+          <End Role="boj5_person" Type="Self.boj5_person" Multiplicity="1" />
+          <End Role="boj5_detail" Type="Self.boj5_detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="boj5_person">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="boj5_detail">
+              <PropertyRef Name="boj5_person_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LocalDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="boj5_detail" EntityType="Self.boj5_detail" />
+          <EntitySet Name="boj5_header" EntityType="Self.boj5_header" />
+          <EntitySet Name="boj5_person" EntityType="Self.boj5_person" />
+          <EntitySet Name="glacc_match" EntityType="Self.glacc_match" />
+          <AssociationSet Name="FK_boj5_detail_0_0" Association="Self.FK_boj5_detail_0_0">
+            <End Role="boj5_person" EntitySet="boj5_person" />
+            <End Role="boj5_detail" EntitySet="boj5_detail" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LocalDbModelStoreContainer" CdmEntityContainer="LocalDbEntities">
+          <EntitySetMapping Name="boj5_detail">
+            <EntityTypeMapping TypeName="LocalDbModel.boj5_detail">
+              <MappingFragment StoreEntitySet="boj5_detail">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="itemNo" ColumnName="itemNo" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="shareNumber" ColumnName="shareNumber" />
+                <ScalarProperty Name="shareType" ColumnName="shareType" />
+                <ScalarProperty Name="paidAmount" ColumnName="paidAmount" />
+                <ScalarProperty Name="asPaidAmount" ColumnName="asPaidAmount" />
+                <ScalarProperty Name="shareDocId" ColumnName="shareDocId" />
+                <ScalarProperty Name="shareDocDate" ColumnName="shareDocDate" />
+                <ScalarProperty Name="shareRegExist" ColumnName="shareRegExist" />
+                <ScalarProperty Name="shareRegOmit" ColumnName="shareRegOmit" />
+                <ScalarProperty Name="boj5_person_id" ColumnName="boj5_person_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="boj5_header">
+            <EntityTypeMapping TypeName="LocalDbModel.boj5_header">
+              <MappingFragment StoreEntitySet="boj5_header">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="accSource" ColumnName="accSource" />
+                <ScalarProperty Name="meetingType" ColumnName="meetingType" />
+                <ScalarProperty Name="meetingNo" ColumnName="meetingNo" />
+                <ScalarProperty Name="sourceDate" ColumnName="sourceDate" />
+                <ScalarProperty Name="totalCapital" ColumnName="totalCapital" />
+                <ScalarProperty Name="totalShare" ColumnName="totalShare" />
+                <ScalarProperty Name="parValue" ColumnName="parValue" />
+                <ScalarProperty Name="thaiShareholder" ColumnName="thaiShareholder" />
+                <ScalarProperty Name="totalThaiShare" ColumnName="totalThaiShare" />
+                <ScalarProperty Name="foreignShareholder" ColumnName="foreignShareholder" />
+                <ScalarProperty Name="totalForeignShare" ColumnName="totalForeignShare" />
+                <ScalarProperty Name="headerStatus" ColumnName="headerStatus" />
+                <ScalarProperty Name="yearEnd" ColumnName="yearEnd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="boj5_person">
+            <EntityTypeMapping TypeName="LocalDbModel.boj5_person">
+              <MappingFragment StoreEntitySet="boj5_person">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="addrForeign" ColumnName="addrForeign" />
+                <ScalarProperty Name="addrFull" ColumnName="addrFull" />
+                <ScalarProperty Name="addrNo" ColumnName="addrNo" />
+                <ScalarProperty Name="amphur" ColumnName="amphur" />
+                <ScalarProperty Name="holderName" ColumnName="holderName" />
+                <ScalarProperty Name="itemSeq" ColumnName="itemSeq" />
+                <ScalarProperty Name="moo" ColumnName="moo" />
+                <ScalarProperty Name="nationality" ColumnName="nationality" />
+                <ScalarProperty Name="occupation" ColumnName="occupation" />
+                <ScalarProperty Name="province" ColumnName="province" />
+                <ScalarProperty Name="road" ColumnName="road" />
+                <ScalarProperty Name="shId" ColumnName="shId" />
+                <ScalarProperty Name="shType" ColumnName="shType" />
+                <ScalarProperty Name="soi" ColumnName="soi" />
+                <ScalarProperty Name="surname" ColumnName="surname" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="tumbol" ColumnName="tumbol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="glacc_match">
+            <EntityTypeMapping TypeName="LocalDbModel.glacc_match">
+              <MappingFragment StoreEntitySet="glacc_match">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="accnum" ColumnName="accnum" />
+                <ScalarProperty Name="depcod" ColumnName="depcod" />
+                <ScalarProperty Name="taxodesc" ColumnName="taxodesc" />
+                <ScalarProperty Name="taxodesc2" ColumnName="taxodesc2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

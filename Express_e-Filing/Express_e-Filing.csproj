@@ -60,6 +60,8 @@
       <HintPath>..\packages\System.Data.SQLite.Linq.1.0.109.0\lib\net40\System.Data.SQLite.Linq.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -78,8 +80,35 @@
     </Compile>
     <Compile Include="Misc\HelperClass.cs" />
     <Compile Include="Model\boj5.cs" />
+    <Compile Include="Model\boj5_detail.cs">
+      <DependentUpon>LocalDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\boj5_header.cs">
+      <DependentUpon>LocalDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\boj5_person.cs">
+      <DependentUpon>LocalDbModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\DbfTable.cs" />
-    <Compile Include="Model\glacc_match.cs" />
+    <Compile Include="Model\DBX.cs" />
+    <Compile Include="Model\glacc_match.cs">
+      <DependentUpon>LocalDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LocalDbModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocalDbModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LocalDbModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocalDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LocalDbModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocalDbModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Model\SQLiteConfiguration.cs" />
     <Compile Include="Model\SQLiteDbContext.cs" />
     <Compile Include="Model\Taxonomy.cs" />
@@ -126,6 +155,13 @@
       <DependentUpon>DialogShareHolders.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
+    <EntityDeploy Include="Model\LocalDbModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LocalDbModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\LocalDbModel.edmx.diagram">
+      <DependentUpon>LocalDbModel.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -167,6 +203,16 @@
     <None Include="Resources\person.png" />
     <None Include="Resources\save_16.png" />
     <None Include="Resources\stop_16.png" />
+    <Content Include="Model\LocalDbModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LocalDbModel.edmx</DependentUpon>
+      <LastGenOutput>LocalDbModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\LocalDbModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LocalDbModel.edmx</DependentUpon>
+      <LastGenOutput>LocalDbModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Template\boj5_detail.xml" />
     <Content Include="Template\boj5_header.xml">
       <SubType>Designer</SubType>
@@ -175,6 +221,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.109.2\build\net40\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.109.2\build\net40\System.Data.SQLite.Core.targets')" />

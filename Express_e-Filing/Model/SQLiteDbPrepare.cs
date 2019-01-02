@@ -12,31 +12,29 @@ using System.Windows.Forms;
 
 namespace Express_e_Filing.Model
 {
-    public class SQLiteDbContext : DbContext
+    public class SQLiteDbPrepare/* : DbContext*/
     {
         public const string taxonomy_matching_file_name = "TAXONOMY.RDB";
 
-        public SQLiteDbContext(SccompDbf sccomp) :
-            base(new SQLiteConnection()
-            {
-                ConnectionString = new SQLiteConnectionStringBuilder() { DataSource = sccomp.GetAbsolutePath() + taxonomy_matching_file_name, ForeignKeys = true }.ConnectionString
-            }, true)
-        {
+        //public SQLiteDbPrepare(SccompDbf sccomp) :
+        //    base(new SQLiteConnection()
+        //    {
+        //        ConnectionString = new SQLiteConnectionStringBuilder() { DataSource = sccomp.GetAbsolutePath() + taxonomy_matching_file_name, ForeignKeys = true }.ConnectionString
+        //    }, true)
+        //{
 
-        }
+        //}
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-            base.OnModelCreating(modelBuilder);
-
-            //modelBuilder.Entity<boj5_detail>().HasRequired<boj5_person>(b => b.)
-        }
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+        //    base.OnModelCreating(modelBuilder);
+        //}
 
         //public DbSet<boj5_header> boj5_header { get; set; }
         //public DbSet<boj5_person> boj5_person { get; set; }
         //public DbSet<boj5_detail> boj5_detail { get; set; }
-        public DbSet<glacc_match> glacc_match { get; set; }
+        //public DbSet<glacc_match> glacc_match { get; set; }
 
         public static void EnsureDbCreated(SccompDbf sccomp)
         {
@@ -48,11 +46,11 @@ namespace Express_e_Filing.Model
                     return;
                 }
 
-                if (!File.Exists(sccomp.GetAbsolutePath() + SQLiteDbContext.taxonomy_matching_file_name))
+                if (!File.Exists(sccomp.GetAbsolutePath() + SQLiteDbPrepare.taxonomy_matching_file_name))
                 {
-                    SQLiteConnection.CreateFile(sccomp.GetAbsolutePath() + SQLiteDbContext.taxonomy_matching_file_name);
+                    SQLiteConnection.CreateFile(sccomp.GetAbsolutePath() + SQLiteDbPrepare.taxonomy_matching_file_name);
 
-                    using (SQLiteConnection connection = new SQLiteConnection(@"Data Source=" + sccomp.GetAbsolutePath() + SQLiteDbContext.taxonomy_matching_file_name + @";Version=3;"))
+                    using (SQLiteConnection connection = new SQLiteConnection(@"Data Source=" + sccomp.GetAbsolutePath() + SQLiteDbPrepare.taxonomy_matching_file_name + @";Version=3;"))
                     {
                         using (SQLiteCommand cmd = connection.CreateCommand())
                         {
@@ -75,7 +73,7 @@ namespace Express_e_Filing.Model
 
         public static void UpgradeDB(SccompDbf sccomp)
         {
-            using (SQLiteConnection connection = new SQLiteConnection(@"Data Source=" + sccomp.GetAbsolutePath() + SQLiteDbContext.taxonomy_matching_file_name + @";Version=3;"))
+            using (SQLiteConnection connection = new SQLiteConnection(@"Data Source=" + sccomp.GetAbsolutePath() + SQLiteDbPrepare.taxonomy_matching_file_name + @";Version=3;"))
             {
                 using (SQLiteCommand cmd = connection.CreateCommand())
                 {
@@ -90,6 +88,8 @@ namespace Express_e_Filing.Model
                     cmd.CommandText += "CREATE TABLE IF NOT EXISTS boj5_header(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, userId TEXT, accSource TEXT, meetingType TEXT, meetingNo TEXT, sourceDate DATE, totalCapital REAL, totalShare INTEGER, parValue REAL, thaiShareholder INTEGER, totalThaiShare INTEGER, foreignShareholder INTEGER, totalForeignShare INTEGER, headerStatus TEXT, yearEnd DATE);";
                     cmd.CommandText += "CREATE TABLE IF NOT EXISTS boj5_person(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, addrForeign TEXT, addrFull TEXT, addrNo TEXT, amphur TEXT, holderName TEXT, itemSeq INTEGER, moo TEXT, nationality TEXT, occupation TEXT, province TEXT, road TEXT, shId TEXT, shType TEXT, soi TEXT, surname TEXT, title TEXT, tumbol TEXT);";
                     cmd.CommandText += "CREATE TABLE IF NOT EXISTS boj5_detail(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, itemNo INTEGER, userId TEXT, shareNumber INTEGER, shareType TEXT, paidAmount REAL, asPaidAmount REAL, shareDocId TEXT, shareDocDate DATE, shareRegExist DATE, shareRegOmit DATE, boj5_person_id INTEGER NOT NULL, FOREIGN KEY(boj5_person_id) REFERENCES boj5_person(id));"; //, FOREIGN KEY(boj5_person_id) REFERENCES boj5_person(id)
+
+                    //cmd.CommandText += "INSERT INTO boj5_header (id, userId, accSource, meetingType, meetingNo, sourceDate, totalCapital, ) VALUES ()";
                     connection.Open();
                     cmd.ExecuteNonQuery();
                     connection.Close();

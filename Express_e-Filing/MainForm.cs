@@ -304,7 +304,7 @@ namespace Express_e_Filing
 
             if(this.selected_comp != null)
             {
-                SQLiteDbContext.EnsureDbCreated(this.selected_comp);
+                SQLiteDbPrepare.EnsureDbCreated(this.selected_comp);
             }
 
             //using (SQLiteDbContext d = new SQLiteDbContext(this.selected_comp))

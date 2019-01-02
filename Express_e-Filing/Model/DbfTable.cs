@@ -76,6 +76,47 @@ namespace Express_e_Filing.Model
             }
         }
 
+        public static IsinfoDbf GetIsinfo(SccompDbf sccomp)
+        {
+            if (!Directory.Exists(sccomp.GetAbsolutePath()))
+            {
+                XMessageBox.Show("ค้นหาไดเร็คทอรี่ " + sccomp.GetAbsolutePath() + " ไม่พบ", "Error", MessageBoxButtons.OK, XMessageBoxIcon.Error);
+                return null;
+            }
+            else
+            {
+                using (OleDbConnection conn = DbfTable.GetConnection(sccomp.GetAbsolutePath()))
+                {
+                    OleDbCommand cmd = conn.CreateCommand();
+                    cmd.CommandText = "Select * From isinfo";
+
+                    DataTable dt = new DataTable();
+                    conn.Open();
+                    using (OleDbDataAdapter da = new OleDbDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                        conn.Close();
+                        if (dt.Rows.Count == 0)
+                            return null;
+
+
+                        return new IsinfoDbf
+                        {
+                            addr01 = !dt.Rows[0].IsNull("addr01") ? dt.Rows[0].Field<string>("addr01").TrimEnd() : string.Empty,
+                            addr01eng = !dt.Rows[0].IsNull("addr01eng") ? dt.Rows[0].Field<string>("addr01eng").TrimEnd() : string.Empty,
+                            addr02 = !dt.Rows[0].IsNull("addr02") ? dt.Rows[0].Field<string>("addr02").TrimEnd() : string.Empty,
+                            addr02eng = !dt.Rows[0].IsNull("addr02eng") ? dt.Rows[0].Field<string>("addr02eng").TrimEnd() : string.Empty,
+                            engnam = !dt.Rows[0].IsNull("engnam") ? dt.Rows[0].Field<string>("engnam").TrimEnd() : string.Empty,
+                            taxid = !dt.Rows[0].IsNull("taxid") ? dt.Rows[0].Field<string>("taxid").TrimEnd() : string.Empty,
+                            telnum = !dt.Rows[0].IsNull("telnum") ? dt.Rows[0].Field<string>("telnum").TrimEnd() : string.Empty,
+                            thinam = !dt.Rows[0].IsNull("thinam") ? dt.Rows[0].Field<string>("thinam").TrimEnd() : string.Empty,
+                            trdreg = !dt.Rows[0].IsNull("trdreg") ? dt.Rows[0].Field<string>("trdreg").TrimEnd() : string.Empty,
+                        };
+                    }
+                }
+            }
+        }
+
         public static List<GlaccDbf> GetGlaccList(SccompDbf sccomp)
         {
             List<GlaccDbf> glacc = new List<GlaccDbf>();
@@ -139,6 +180,20 @@ namespace Express_e_Filing.Model
         public string compnam { get { return this.sccomp.compnam; } }
         public string compcod { get { return this.sccomp.compcod; } }
         public string path { get { return this.sccomp.path; } }
+    }
+
+    public class IsinfoDbf
+    {
+        public string thinam { get; set; }
+        public string addr01 { get; set; }
+        public string addr02 { get; set; }
+        public string telnum { get; set; }
+        public string engnam { get; set; }
+        public string addr01eng { get; set; }
+        public string addr02eng { get; set; }
+        public string trdreg { get; set; }
+        public string taxid { get; set; }
+
     }
 
     public class GlaccDbf

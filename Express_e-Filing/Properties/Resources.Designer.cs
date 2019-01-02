@@ -73,9 +73,39 @@ namespace Express_e_Filing.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap arrow_go_down {
+            get {
+                object obj = ResourceManager.GetObject("arrow_go_down", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap arrow_go_up {
+            get {
+                object obj = ResourceManager.GetObject("arrow_go_up", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cancel_12 {
             get {
                 object obj = ResourceManager.GetObject("cancel_12", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cancel_121 {
+            get {
+                object obj = ResourceManager.GetObject("cancel_121", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

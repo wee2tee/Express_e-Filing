@@ -29,17 +29,26 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.grpMeeting = new System.Windows.Forms.GroupBox();
             this.cMeetingTypeS = new System.Windows.Forms.RadioButton();
             this.cMeetingTypeC = new System.Windows.Forms.RadioButton();
+            this.label22 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.cMeetingNo = new CC.XTextEdit();
             this.cMeetingTypeE = new System.Windows.Forms.RadioButton();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cSourceDate = new CC.XDatePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cSourceDate = new CC.XDatePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.cTotalCapital = new CC.XNumEdit();
             this.label8 = new System.Windows.Forms.Label();
@@ -53,8 +62,10 @@
             this.btnStop = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
-            this.xTextEdit2 = new CC.XTextEdit();
-            this.xTextEdit1 = new CC.XTextEdit();
+            this.cTaxId = new CC.XTextEdit();
+            this.cCompNam = new CC.XTextEdit();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cYearEnd = new CC.XDatePicker();
             this.cTotalForeignShare = new CC.XNumEdit();
             this.cTotalThaiShare = new CC.XNumEdit();
             this.cForeignShareHolder = new CC.XNumEdit();
@@ -74,21 +85,18 @@
             this.btnDeleteItem = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgv = new CC.XDatagrid();
+            this.btnEditItem = new System.Windows.Forms.Button();
+            this.btnAddItem = new System.Windows.Forms.Button();
             this.col_itemNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_holderName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_shareNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_asPaidAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_shareDocId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_shareDocDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_shareRegExist = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_shareRegOmit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_boj5detail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnEditItem = new System.Windows.Forms.Button();
-            this.btnAddItem = new System.Windows.Forms.Button();
-            this.label22 = new System.Windows.Forms.Label();
-            this.cYearEnd = new CC.XDatePicker();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cMeetingNo = new CC.XTextEdit();
+            this.col_boj5_detail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpMeeting.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -124,6 +132,7 @@
             this.cMeetingTypeS.TabStop = true;
             this.cMeetingTypeS.Text = "ประชุมวิสามัญผู้ถือหุ้น";
             this.cMeetingTypeS.UseVisualStyleBackColor = true;
+            this.cMeetingTypeS.CheckedChanged += new System.EventHandler(this.cMeetingTypeS_CheckedChanged);
             // 
             // cMeetingTypeC
             // 
@@ -136,6 +145,18 @@
             this.cMeetingTypeC.TabStop = true;
             this.cMeetingTypeC.Text = "ประชุมสามัญผู้ถือหุ้น";
             this.cMeetingTypeC.UseVisualStyleBackColor = true;
+            this.cMeetingTypeC.CheckedChanged += new System.EventHandler(this.cMeetingTypeC_CheckedChanged);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label22.ForeColor = System.Drawing.Color.DimGray;
+            this.label22.Location = new System.Drawing.Point(127, 42);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(45, 13);
+            this.label22.TabIndex = 1;
+            this.label22.Text = "0/ปปปป";
             // 
             // label5
             // 
@@ -145,6 +166,28 @@
             this.label5.Size = new System.Drawing.Size(37, 16);
             this.label5.TabIndex = 1;
             this.label5.Text = "ครั้งที่";
+            // 
+            // cMeetingNo
+            // 
+            this.cMeetingNo._BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cMeetingNo._CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.cMeetingNo._ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cMeetingNo._MaxLength = 32767;
+            this.cMeetingNo._PasswordChar = '\0';
+            this.cMeetingNo._ReadOnly = true;
+            this.cMeetingNo._SelectionLength = 0;
+            this.cMeetingNo._SelectionStart = 0;
+            this.cMeetingNo._Text = "";
+            this.cMeetingNo._TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.cMeetingNo.BackColor = System.Drawing.Color.White;
+            this.cMeetingNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cMeetingNo.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cMeetingNo.Location = new System.Drawing.Point(57, 38);
+            this.cMeetingNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cMeetingNo.Name = "cMeetingNo";
+            this.cMeetingNo.Size = new System.Drawing.Size(69, 23);
+            this.cMeetingNo.TabIndex = 1;
+            this.cMeetingNo._TextChanged += new System.EventHandler(this.cMeetingNo__TextChanged);
             // 
             // cMeetingTypeE
             // 
@@ -157,6 +200,30 @@
             this.cMeetingTypeE.TabStop = true;
             this.cMeetingTypeE.Text = "ประชุมจัดตั้งบริษัท";
             this.cMeetingTypeE.UseVisualStyleBackColor = true;
+            this.cMeetingTypeE.CheckedChanged += new System.EventHandler(this.cMeetingTypeE_CheckedChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(201, 42);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(51, 16);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "เมื่อวันที่";
+            // 
+            // cSourceDate
+            // 
+            this.cSourceDate._ReadOnly = true;
+            this.cSourceDate._SelectedDate = null;
+            this.cSourceDate.BackColor = System.Drawing.Color.White;
+            this.cSourceDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cSourceDate.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cSourceDate.Location = new System.Drawing.Point(255, 38);
+            this.cSourceDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cSourceDate.Name = "cSourceDate";
+            this.cSourceDate.Size = new System.Drawing.Size(103, 23);
+            this.cSourceDate.TabIndex = 8;
+            this.cSourceDate._SelectedDateChanged += new System.EventHandler(this.cSourceDate__SelectedDateChanged);
             // 
             // label1
             // 
@@ -184,28 +251,6 @@
             this.label3.Size = new System.Drawing.Size(129, 16);
             this.label3.TabIndex = 1;
             this.label3.Text = "ที่มาของรายชื่อผู้ถือหุ้น";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(201, 42);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 16);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "เมื่อวันที่";
-            // 
-            // cSourceDate
-            // 
-            this.cSourceDate._ReadOnly = true;
-            this.cSourceDate._SelectedDate = null;
-            this.cSourceDate.BackColor = System.Drawing.Color.White;
-            this.cSourceDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cSourceDate.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cSourceDate.Location = new System.Drawing.Point(255, 38);
-            this.cSourceDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cSourceDate.Name = "cSourceDate";
-            this.cSourceDate.Size = new System.Drawing.Size(103, 23);
-            this.cSourceDate.TabIndex = 8;
             // 
             // label7
             // 
@@ -249,6 +294,7 @@
             this.cTotalCapital.Name = "cTotalCapital";
             this.cTotalCapital.Size = new System.Drawing.Size(136, 23);
             this.cTotalCapital.TabIndex = 9;
+            this.cTotalCapital._ValueChanged += new System.EventHandler(this.cTotalCapital__ValueChanged);
             // 
             // label8
             // 
@@ -292,6 +338,7 @@
             this.cTotalShare.Name = "cTotalShare";
             this.cTotalShare.Size = new System.Drawing.Size(137, 23);
             this.cTotalShare.TabIndex = 10;
+            this.cTotalShare._ValueChanged += new System.EventHandler(this.cTotalShare__ValueChanged);
             // 
             // label9
             // 
@@ -353,6 +400,7 @@
             this.cParValue.Name = "cParValue";
             this.cParValue.Size = new System.Drawing.Size(94, 23);
             this.cParValue.TabIndex = 11;
+            this.cParValue._ValueChanged += new System.EventHandler(this.cParValue__ValueChanged);
             // 
             // panel1
             // 
@@ -363,8 +411,8 @@
             this.panel1.Controls.Add(this.btnStop);
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Controls.Add(this.btnEdit);
-            this.panel1.Controls.Add(this.xTextEdit2);
-            this.panel1.Controls.Add(this.xTextEdit1);
+            this.panel1.Controls.Add(this.cTaxId);
+            this.panel1.Controls.Add(this.cCompNam);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.cYearEnd);
             this.panel1.Controls.Add(this.label1);
@@ -414,6 +462,7 @@
             this.cAccSource.Size = new System.Drawing.Size(175, 23);
             this.cAccSource.TabIndex = 18;
             this.cAccSource.TabStop = false;
+            this.cAccSource._SelectedItemChanged += new System.EventHandler(this.cAccSource__SelectedItemChanged);
             // 
             // btnStop
             // 
@@ -446,6 +495,7 @@
             this.btnSave.Text = "บันทึก";
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnEdit
             // 
@@ -463,47 +513,70 @@
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
-            // xTextEdit2
+            // cTaxId
             // 
-            this.xTextEdit2._BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.xTextEdit2._CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.xTextEdit2._ForeColor = System.Drawing.SystemColors.WindowText;
-            this.xTextEdit2._MaxLength = 32767;
-            this.xTextEdit2._PasswordChar = '\0';
-            this.xTextEdit2._ReadOnly = true;
-            this.xTextEdit2._SelectionLength = 0;
-            this.xTextEdit2._SelectionStart = 0;
-            this.xTextEdit2._Text = "";
-            this.xTextEdit2._TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.xTextEdit2.BackColor = System.Drawing.Color.White;
-            this.xTextEdit2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.xTextEdit2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.xTextEdit2.Location = new System.Drawing.Point(157, 35);
-            this.xTextEdit2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.xTextEdit2.Name = "xTextEdit2";
-            this.xTextEdit2.Size = new System.Drawing.Size(175, 23);
-            this.xTextEdit2.TabIndex = 1;
+            this.cTaxId._BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cTaxId._CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.cTaxId._ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cTaxId._MaxLength = 32767;
+            this.cTaxId._PasswordChar = '\0';
+            this.cTaxId._ReadOnly = true;
+            this.cTaxId._SelectionLength = 0;
+            this.cTaxId._SelectionStart = 0;
+            this.cTaxId._Text = "";
+            this.cTaxId._TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.cTaxId.BackColor = System.Drawing.Color.White;
+            this.cTaxId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cTaxId.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cTaxId.Location = new System.Drawing.Point(157, 35);
+            this.cTaxId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cTaxId.Name = "cTaxId";
+            this.cTaxId.Size = new System.Drawing.Size(175, 23);
+            this.cTaxId.TabIndex = 1;
             // 
-            // xTextEdit1
+            // cCompNam
             // 
-            this.xTextEdit1._BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.xTextEdit1._CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.xTextEdit1._ForeColor = System.Drawing.SystemColors.WindowText;
-            this.xTextEdit1._MaxLength = 32767;
-            this.xTextEdit1._PasswordChar = '\0';
-            this.xTextEdit1._ReadOnly = true;
-            this.xTextEdit1._SelectionLength = 0;
-            this.xTextEdit1._SelectionStart = 0;
-            this.xTextEdit1._Text = "";
-            this.xTextEdit1._TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.xTextEdit1.BackColor = System.Drawing.Color.White;
-            this.xTextEdit1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.xTextEdit1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.xTextEdit1.Location = new System.Drawing.Point(157, 8);
-            this.xTextEdit1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.xTextEdit1.Name = "xTextEdit1";
-            this.xTextEdit1.Size = new System.Drawing.Size(409, 23);
-            this.xTextEdit1.TabIndex = 0;
+            this.cCompNam._BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cCompNam._CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.cCompNam._ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cCompNam._MaxLength = 32767;
+            this.cCompNam._PasswordChar = '\0';
+            this.cCompNam._ReadOnly = true;
+            this.cCompNam._SelectionLength = 0;
+            this.cCompNam._SelectionStart = 0;
+            this.cCompNam._Text = "";
+            this.cCompNam._TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.cCompNam.BackColor = System.Drawing.Color.White;
+            this.cCompNam.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cCompNam.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cCompNam.Location = new System.Drawing.Point(157, 8);
+            this.cCompNam.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cCompNam.Name = "cCompNam";
+            this.cCompNam.Size = new System.Drawing.Size(409, 23);
+            this.cCompNam.TabIndex = 0;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(13, 93);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(141, 16);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "วันที่สิ้นสุดปีบัญชีของงบฯ";
+            // 
+            // cYearEnd
+            // 
+            this.cYearEnd._ReadOnly = true;
+            this.cYearEnd._SelectedDate = null;
+            this.cYearEnd.BackColor = System.Drawing.Color.White;
+            this.cYearEnd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cYearEnd.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cYearEnd.Location = new System.Drawing.Point(157, 89);
+            this.cYearEnd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cYearEnd.Name = "cYearEnd";
+            this.cYearEnd.Size = new System.Drawing.Size(103, 23);
+            this.cYearEnd.TabIndex = 8;
+            this.cYearEnd._SelectedDateChanged += new System.EventHandler(this.cYearEnd__SelectedDateChanged);
             // 
             // cTotalForeignShare
             // 
@@ -538,6 +611,7 @@
             this.cTotalForeignShare.Name = "cTotalForeignShare";
             this.cTotalForeignShare.Size = new System.Drawing.Size(65, 23);
             this.cTotalForeignShare.TabIndex = 15;
+            this.cTotalForeignShare._ValueChanged += new System.EventHandler(this.cTotalForeignShare__ValueChanged);
             // 
             // cTotalThaiShare
             // 
@@ -572,6 +646,7 @@
             this.cTotalThaiShare.Name = "cTotalThaiShare";
             this.cTotalThaiShare.Size = new System.Drawing.Size(65, 23);
             this.cTotalThaiShare.TabIndex = 13;
+            this.cTotalThaiShare._ValueChanged += new System.EventHandler(this.cTotalThaiShare__ValueChanged);
             // 
             // cForeignShareHolder
             // 
@@ -606,6 +681,7 @@
             this.cForeignShareHolder.Name = "cForeignShareHolder";
             this.cForeignShareHolder.Size = new System.Drawing.Size(65, 23);
             this.cForeignShareHolder.TabIndex = 14;
+            this.cForeignShareHolder._ValueChanged += new System.EventHandler(this.cForeignShareHolder__ValueChanged);
             // 
             // cThaiShareHolder
             // 
@@ -640,6 +716,7 @@
             this.cThaiShareHolder.Name = "cThaiShareHolder";
             this.cThaiShareHolder.Size = new System.Drawing.Size(65, 23);
             this.cThaiShareHolder.TabIndex = 12;
+            this.cThaiShareHolder._ValueChanged += new System.EventHandler(this.cThaiShareHolder__ValueChanged);
             // 
             // label21
             // 
@@ -756,7 +833,7 @@
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Size = new System.Drawing.Size(972, 272);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "รายชื่อผู้ถือหุ้น";
+            this.tabPage1.Text = "รายชื่อผู้ถือหุ้น และ รายละเอียดใบหุ้น";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // btnDeleteItem
@@ -806,19 +883,20 @@
             this.col_holderName,
             this.col_shareNumber,
             this.col_Amount,
+            this.col_asPaidAmount,
             this.col_shareDocId,
             this.col_shareDocDate,
             this.col_shareRegExist,
             this.col_shareRegOmit,
-            this.col_boj5detail});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv.DefaultCellStyle = dataGridViewCellStyle2;
+            this.col_boj5_detail});
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv.DefaultCellStyle = dataGridViewCellStyle9;
             this.dgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgv.EnableHeadersVisualStyles = false;
@@ -829,73 +907,12 @@
             this.dgv.Name = "dgv";
             this.dgv.ReadOnly = true;
             this.dgv.RowHeadersVisible = false;
-            this.dgv.RowTemplate.Height = 26;
+            this.dgv.RowTemplate.Height = 45;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv.Size = new System.Drawing.Size(965, 235);
             this.dgv.StandardTab = true;
             this.dgv.TabIndex = 0;
-            // 
-            // col_itemNo
-            // 
-            this.col_itemNo.HeaderText = "ลำดับที่";
-            this.col_itemNo.MinimumWidth = 40;
-            this.col_itemNo.Name = "col_itemNo";
-            this.col_itemNo.ReadOnly = true;
-            this.col_itemNo.Width = 40;
-            // 
-            // col_holderName
-            // 
-            this.col_holderName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.col_holderName.HeaderText = "ชื่อผู้ถือหุ้น";
-            this.col_holderName.Name = "col_holderName";
-            this.col_holderName.ReadOnly = true;
-            // 
-            // col_shareNumber
-            // 
-            this.col_shareNumber.HeaderText = "จำนวนหุ้นที่ถือ";
-            this.col_shareNumber.MinimumWidth = 120;
-            this.col_shareNumber.Name = "col_shareNumber";
-            this.col_shareNumber.ReadOnly = true;
-            this.col_shareNumber.Width = 120;
-            // 
-            // col_Amount
-            // 
-            this.col_Amount.HeaderText = "มูลค่าหุ้น";
-            this.col_Amount.MinimumWidth = 140;
-            this.col_Amount.Name = "col_Amount";
-            this.col_Amount.ReadOnly = true;
-            this.col_Amount.Width = 140;
-            // 
-            // col_shareDocId
-            // 
-            this.col_shareDocId.HeaderText = "เลขที่ใบหุ้น";
-            this.col_shareDocId.Name = "col_shareDocId";
-            this.col_shareDocId.ReadOnly = true;
-            // 
-            // col_shareDocDate
-            // 
-            this.col_shareDocDate.HeaderText = "ลงวันที่";
-            this.col_shareDocDate.Name = "col_shareDocDate";
-            this.col_shareDocDate.ReadOnly = true;
-            // 
-            // col_shareRegExist
-            // 
-            this.col_shareRegExist.HeaderText = "วันที่ลงทะเบียน";
-            this.col_shareRegExist.Name = "col_shareRegExist";
-            this.col_shareRegExist.ReadOnly = true;
-            // 
-            // col_shareRegOmit
-            // 
-            this.col_shareRegOmit.HeaderText = "วันที่ขาดทะเบียน";
-            this.col_shareRegOmit.Name = "col_shareRegOmit";
-            this.col_shareRegOmit.ReadOnly = true;
-            // 
-            // col_boj5detail
-            // 
-            this.col_boj5detail.HeaderText = "Boj5Detail";
-            this.col_boj5detail.Name = "col_boj5detail";
-            this.col_boj5detail.ReadOnly = true;
-            this.col_boj5detail.Visible = false;
+            this.dgv.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgv_CellPainting);
             // 
             // btnEditItem
             // 
@@ -925,59 +942,101 @@
             this.btnAddItem.UseVisualStyleBackColor = true;
             this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
             // 
-            // label22
+            // col_itemNo
             // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label22.ForeColor = System.Drawing.Color.DimGray;
-            this.label22.Location = new System.Drawing.Point(127, 42);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(45, 13);
-            this.label22.TabIndex = 1;
-            this.label22.Text = "0/ปปปป";
+            this.col_itemNo.DataPropertyName = "itemNo";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.col_itemNo.DefaultCellStyle = dataGridViewCellStyle2;
+            this.col_itemNo.HeaderText = "ลำดับที่";
+            this.col_itemNo.MinimumWidth = 40;
+            this.col_itemNo.Name = "col_itemNo";
+            this.col_itemNo.ReadOnly = true;
+            this.col_itemNo.Width = 40;
             // 
-            // cYearEnd
+            // col_holderName
             // 
-            this.cYearEnd._ReadOnly = true;
-            this.cYearEnd._SelectedDate = null;
-            this.cYearEnd.BackColor = System.Drawing.Color.White;
-            this.cYearEnd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cYearEnd.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cYearEnd.Location = new System.Drawing.Point(157, 89);
-            this.cYearEnd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cYearEnd.Name = "cYearEnd";
-            this.cYearEnd.Size = new System.Drawing.Size(103, 23);
-            this.cYearEnd.TabIndex = 8;
+            this.col_holderName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.col_holderName.DataPropertyName = "holderName";
+            this.col_holderName.HeaderText = "ชื่อผู้ถือหุ้น";
+            this.col_holderName.Name = "col_holderName";
+            this.col_holderName.ReadOnly = true;
             // 
-            // label6
+            // col_shareNumber
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 93);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(141, 16);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "วันที่สิ้นสุดปีบัญชีของงบฯ";
+            this.col_shareNumber.DataPropertyName = "shareNumber";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "N0";
+            this.col_shareNumber.DefaultCellStyle = dataGridViewCellStyle3;
+            this.col_shareNumber.HeaderText = "จำนวนหุ้นที่ถือ";
+            this.col_shareNumber.MinimumWidth = 120;
+            this.col_shareNumber.Name = "col_shareNumber";
+            this.col_shareNumber.ReadOnly = true;
+            this.col_shareNumber.Width = 120;
             // 
-            // cMeetingNo
+            // col_Amount
             // 
-            this.cMeetingNo._BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cMeetingNo._CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.cMeetingNo._ForeColor = System.Drawing.SystemColors.WindowText;
-            this.cMeetingNo._MaxLength = 32767;
-            this.cMeetingNo._PasswordChar = '\0';
-            this.cMeetingNo._ReadOnly = true;
-            this.cMeetingNo._SelectionLength = 0;
-            this.cMeetingNo._SelectionStart = 0;
-            this.cMeetingNo._Text = "";
-            this.cMeetingNo._TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.cMeetingNo.BackColor = System.Drawing.Color.White;
-            this.cMeetingNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cMeetingNo.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cMeetingNo.Location = new System.Drawing.Point(57, 38);
-            this.cMeetingNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cMeetingNo.Name = "cMeetingNo";
-            this.cMeetingNo.Size = new System.Drawing.Size(69, 23);
-            this.cMeetingNo.TabIndex = 1;
+            this.col_Amount.DataPropertyName = "paidAmount";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "N2";
+            this.col_Amount.DefaultCellStyle = dataGridViewCellStyle4;
+            this.col_Amount.HeaderText = "มูลค่าหุ้น";
+            this.col_Amount.MinimumWidth = 140;
+            this.col_Amount.Name = "col_Amount";
+            this.col_Amount.ReadOnly = true;
+            this.col_Amount.Width = 140;
+            // 
+            // col_asPaidAmount
+            // 
+            this.col_asPaidAmount.DataPropertyName = "asPaidAmount";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "N2";
+            this.col_asPaidAmount.DefaultCellStyle = dataGridViewCellStyle5;
+            this.col_asPaidAmount.HeaderText = "asPaidAmount";
+            this.col_asPaidAmount.Name = "col_asPaidAmount";
+            this.col_asPaidAmount.ReadOnly = true;
+            this.col_asPaidAmount.Visible = false;
+            // 
+            // col_shareDocId
+            // 
+            this.col_shareDocId.DataPropertyName = "shareDocId";
+            this.col_shareDocId.HeaderText = "เลขที่ใบหุ้น";
+            this.col_shareDocId.Name = "col_shareDocId";
+            this.col_shareDocId.ReadOnly = true;
+            // 
+            // col_shareDocDate
+            // 
+            this.col_shareDocDate.DataPropertyName = "shareDocDate";
+            dataGridViewCellStyle6.Format = "dd/MM/yyyy";
+            this.col_shareDocDate.DefaultCellStyle = dataGridViewCellStyle6;
+            this.col_shareDocDate.HeaderText = "ลงวันที่";
+            this.col_shareDocDate.Name = "col_shareDocDate";
+            this.col_shareDocDate.ReadOnly = true;
+            // 
+            // col_shareRegExist
+            // 
+            this.col_shareRegExist.DataPropertyName = "shareRegExist";
+            dataGridViewCellStyle7.Format = "dd/MM/yyyy";
+            this.col_shareRegExist.DefaultCellStyle = dataGridViewCellStyle7;
+            this.col_shareRegExist.HeaderText = "วันที่ลงทะเบียน";
+            this.col_shareRegExist.Name = "col_shareRegExist";
+            this.col_shareRegExist.ReadOnly = true;
+            // 
+            // col_shareRegOmit
+            // 
+            this.col_shareRegOmit.DataPropertyName = "shareRegOmit";
+            dataGridViewCellStyle8.Format = "dd/MM/yyyy";
+            this.col_shareRegOmit.DefaultCellStyle = dataGridViewCellStyle8;
+            this.col_shareRegOmit.HeaderText = "วันที่ขาดทะเบียน";
+            this.col_shareRegOmit.Name = "col_shareRegOmit";
+            this.col_shareRegOmit.ReadOnly = true;
+            // 
+            // col_boj5_detail
+            // 
+            this.col_boj5_detail.DataPropertyName = "boj5_detail";
+            this.col_boj5_detail.HeaderText = "Boj5Detail";
+            this.col_boj5_detail.Name = "col_boj5_detail";
+            this.col_boj5_detail.ReadOnly = true;
+            this.col_boj5_detail.Visible = false;
             // 
             // DialogShareHolders
             // 
@@ -1031,8 +1090,8 @@
         private CC.XNumEdit cParValue;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label12;
-        private CC.XTextEdit xTextEdit2;
-        private CC.XTextEdit xTextEdit1;
+        private CC.XTextEdit cTaxId;
+        private CC.XTextEdit cCompNam;
         private CC.XNumEdit cTotalForeignShare;
         private CC.XNumEdit cTotalThaiShare;
         private CC.XNumEdit cForeignShareHolder;
@@ -1051,15 +1110,6 @@
         private CC.XDatagrid dgv;
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_itemNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_holderName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_shareNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_Amount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_shareDocId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_shareDocDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_shareRegExist;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_shareRegOmit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_boj5detail;
         private System.Windows.Forms.Button btnAddItem;
         private System.Windows.Forms.Button btnEditItem;
         private System.Windows.Forms.Button btnDeleteItem;
@@ -1070,5 +1120,15 @@
         private System.Windows.Forms.Label label6;
         private CC.XDatePicker cYearEnd;
         private CC.XTextEdit cMeetingNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_itemNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_holderName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_shareNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_Amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_asPaidAmount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_shareDocId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_shareDocDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_shareRegExist;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_shareRegOmit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_boj5_detail;
     }
 }

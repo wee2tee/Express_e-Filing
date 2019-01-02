@@ -45,6 +45,9 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -79,7 +82,6 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Misc\HelperClass.cs" />
-    <Compile Include="Model\boj5.cs" />
     <Compile Include="Model\boj5_detail.cs">
       <DependentUpon>LocalDbModel.tt</DependentUpon>
     </Compile>
@@ -110,10 +112,23 @@
       <DependentUpon>LocalDbModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\SQLiteConfiguration.cs" />
-    <Compile Include="Model\SQLiteDbContext.cs" />
+    <Compile Include="Model\SQLiteDbPrepare.cs" />
     <Compile Include="Model\Taxonomy.cs" />
+    <Compile Include="Model\ViewModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SubForm\DialogBojDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForm\DialogBojDetail.Designer.cs">
+      <DependentUpon>DialogBojDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubForm\DialogBojPerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForm\DialogBojPerson.Designer.cs">
+      <DependentUpon>DialogBojPerson.cs</DependentUpon>
+    </Compile>
     <Compile Include="SubForm\DialogInlineSearch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +160,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SubForm\DialogBojDetail.resx">
+      <DependentUpon>DialogBojDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForm\DialogBojPerson.resx">
+      <DependentUpon>DialogBojPerson.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SubForm\DialogInlineSearch.resx">
       <DependentUpon>DialogInlineSearch.cs</DependentUpon>
     </EmbeddedResource>
@@ -172,6 +193,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Template\nationality.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icon_folder.png" />
@@ -213,7 +237,13 @@
       <DependentUpon>LocalDbModel.edmx</DependentUpon>
       <LastGenOutput>LocalDbModel.cs</LastGenOutput>
     </Content>
-    <Content Include="Template\boj5_detail.xml" />
+    <None Include="Resources\add_161.png" />
+    <None Include="Resources\cancel_121.png" />
+    <None Include="Resources\arrow_go_down.png" />
+    <None Include="Resources\arrow_go_up.png" />
+    <Content Include="Template\boj5_detail.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Template\boj5_header.xml">
       <SubType>Designer</SubType>
     </Content>

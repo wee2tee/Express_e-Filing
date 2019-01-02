@@ -98,6 +98,52 @@ namespace Express_e_Filing.Misc
             return g;
         }
 
+        public static boj5_detail_VM ToViewModel(this boj5_detail detail)
+        {
+            if (detail == null)
+                return null;
+
+            boj5_detail_VM b = new boj5_detail_VM
+            {
+                boj5_detail = detail
+            };
+            return b;
+        }
+
+        public static List<boj5_detail_VM> ToViewModel(this IEnumerable<boj5_detail> details)
+        {
+            List<boj5_detail_VM> b = new List<boj5_detail_VM>();
+
+            foreach (var item in details)
+            {
+                b.Add(item.ToViewModel());
+            }
+            return b;
+        }
+
+        public static boj5_person_VM ToViewModel(this boj5_person person)
+        {
+            if (person == null)
+                return null;
+
+            boj5_person_VM p = new boj5_person_VM
+            {
+                boj5_person = person
+            };
+            return p;
+        }
+
+        public static List<boj5_person_VM> ToViewModel(this IEnumerable<boj5_person> persons)
+        {
+            List<boj5_person_VM> p = new List<boj5_person_VM>();
+
+            foreach (var item in persons)
+            {
+                p.Add(item.ToViewModel());
+            }
+            return p;
+        }
+
         public static string AddIndent(this string str, int indent_space)
         {
             string ret_str = string.Empty;

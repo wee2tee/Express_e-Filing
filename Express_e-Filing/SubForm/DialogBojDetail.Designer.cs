@@ -358,11 +358,13 @@
             // btnOK
             // 
             this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnOK.Location = new System.Drawing.Point(309, 353);
+            this.btnOK.Image = global::Express_e_Filing.Properties.Resources.save_16;
+            this.btnOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOK.Location = new System.Drawing.Point(306, 353);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(106, 30);
+            this.btnOK.Size = new System.Drawing.Size(109, 30);
             this.btnOK.TabIndex = 10;
-            this.btnOK.Text = "บันทึก <F9>";
+            this.btnOK.Text = "    บันทึก <F9>";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
@@ -370,11 +372,13 @@
             // 
             this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Image = global::Express_e_Filing.Properties.Resources.stop_16;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancel.Location = new System.Drawing.Point(421, 353);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(106, 30);
+            this.btnCancel.Size = new System.Drawing.Size(109, 30);
             this.btnCancel.TabIndex = 11;
-            this.btnCancel.Text = "ยกเลิก <Esc>";
+            this.btnCancel.Text = "    ยกเลิก <Esc>";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // dgvPerson
@@ -496,6 +500,7 @@
             this.btnDown.TabIndex = 13;
             this.btnDown.Text = "  เลื่อนลง";
             this.btnDown.UseVisualStyleBackColor = true;
+            this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
             // 
             // btnUp
             // 
@@ -508,6 +513,7 @@
             this.btnUp.TabIndex = 13;
             this.btnUp.Text = "  เลื่อนขึ้น";
             this.btnUp.UseVisualStyleBackColor = true;
+            this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
             // 
             // btnDeleteHolder
             // 

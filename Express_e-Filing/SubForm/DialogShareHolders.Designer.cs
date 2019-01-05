@@ -85,8 +85,6 @@
             this.btnDeleteItem = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgv = new CC.XDatagrid();
-            this.btnEditItem = new System.Windows.Forms.Button();
-            this.btnAddItem = new System.Windows.Forms.Button();
             this.col_itemNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_holderName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_shareNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -97,6 +95,8 @@
             this.col_shareRegExist = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_shareRegOmit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_boj5_detail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnEditItem = new System.Windows.Forms.Button();
+            this.btnAddItem = new System.Windows.Forms.Button();
             this.grpMeeting.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -484,6 +484,7 @@
             // btnSave
             // 
             this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnSave.Enabled = false;
             this.btnSave.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btnSave.Image = global::Express_e_Filing.Properties.Resources.save_16;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -914,34 +915,6 @@
             this.dgv.TabIndex = 0;
             this.dgv.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgv_CellPainting);
             // 
-            // btnEditItem
-            // 
-            this.btnEditItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEditItem.Image = global::Express_e_Filing.Properties.Resources.edit_16;
-            this.btnEditItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditItem.Location = new System.Drawing.Point(840, 5);
-            this.btnEditItem.Name = "btnEditItem";
-            this.btnEditItem.Size = new System.Drawing.Size(64, 24);
-            this.btnEditItem.TabIndex = 19;
-            this.btnEditItem.Text = "แก้ไข";
-            this.btnEditItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEditItem.UseVisualStyleBackColor = true;
-            this.btnEditItem.Click += new System.EventHandler(this.btnEditItem_Click);
-            // 
-            // btnAddItem
-            // 
-            this.btnAddItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddItem.Image = global::Express_e_Filing.Properties.Resources.add_16;
-            this.btnAddItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddItem.Location = new System.Drawing.Point(777, 5);
-            this.btnAddItem.Name = "btnAddItem";
-            this.btnAddItem.Size = new System.Drawing.Size(57, 24);
-            this.btnAddItem.TabIndex = 18;
-            this.btnAddItem.Text = "เพิ่ม";
-            this.btnAddItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAddItem.UseVisualStyleBackColor = true;
-            this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
-            // 
             // col_itemNo
             // 
             this.col_itemNo.DataPropertyName = "itemNo";
@@ -1037,6 +1010,34 @@
             this.col_boj5_detail.Name = "col_boj5_detail";
             this.col_boj5_detail.ReadOnly = true;
             this.col_boj5_detail.Visible = false;
+            // 
+            // btnEditItem
+            // 
+            this.btnEditItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditItem.Image = global::Express_e_Filing.Properties.Resources.edit_16;
+            this.btnEditItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditItem.Location = new System.Drawing.Point(840, 5);
+            this.btnEditItem.Name = "btnEditItem";
+            this.btnEditItem.Size = new System.Drawing.Size(64, 24);
+            this.btnEditItem.TabIndex = 19;
+            this.btnEditItem.Text = "แก้ไข";
+            this.btnEditItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEditItem.UseVisualStyleBackColor = true;
+            this.btnEditItem.Click += new System.EventHandler(this.btnEditItem_Click);
+            // 
+            // btnAddItem
+            // 
+            this.btnAddItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddItem.Image = global::Express_e_Filing.Properties.Resources.add_16;
+            this.btnAddItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddItem.Location = new System.Drawing.Point(777, 5);
+            this.btnAddItem.Name = "btnAddItem";
+            this.btnAddItem.Size = new System.Drawing.Size(57, 24);
+            this.btnAddItem.TabIndex = 18;
+            this.btnAddItem.Text = "เพิ่ม";
+            this.btnAddItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAddItem.UseVisualStyleBackColor = true;
+            this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
             // 
             // DialogShareHolders
             // 

@@ -75,7 +75,7 @@ namespace Express_e_Filing.SubForm
         {
             using (LocalDbEntities db = DBX.DataSet(this.main_form.selected_comp))
             {
-                this.person_list = new BindingList<boj5_person_VM>(db.boj5_person.ToList().ToViewModel());
+                this.person_list = new BindingList<boj5_person_VM>(db.boj5_person.OrderBy(p => p.itemSeq).ToList().ToViewModel());
                 this.person_list.ToList().ForEach(i =>
                 {
                     if (i.boj5_person.id == this.boj5_detail.boj5_person_id)
@@ -322,11 +322,99 @@ namespace Express_e_Filing.SubForm
                             this.LoadPersonToDatagrid();
                         }
                     }
+
+                    long? itemno = 0;
+                    db.boj5_detail.Include("boj5_person").OrderBy(d => d.boj5_person.itemSeq).ToList().ForEach(d => d.itemNo = ++itemno);
+                    db.SaveChanges();
                 }
             }
             catch (Exception ex)
             {
                 XMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, XMessageBoxIcon.Error);
+            }
+        }
+
+        private void btnUp_Click(object sender, EventArgs e)
+        {
+            if (this.dgvPerson.CurrentCell.RowIndex == 0 || this.dgvPerson.Rows.Count <= 1)
+                return;
+
+            using (LocalDbEntities db = DBX.DataSet(this.main_form.selected_comp))
+            {
+                if (db.boj5_person.Count() <= 1)
+                    return;
+
+                var curr_person = db.boj5_person.Find(((boj5_person)this.dgvPerson.Rows[this.dgvPerson.CurrentCell.RowIndex].Cells[this.col_boj5_person.Name].Value).id);
+                if (curr_person == null)
+                {
+                    XMessageBox.Show("ค้นหารายการที่ต้องการแก้ไขไม่พบ", "", MessageBoxButtons.OK, XMessageBoxIcon.Stop);
+                    return;
+                }
+
+                var prev_person = db.boj5_person.Where(p => p.itemSeq < curr_person.itemSeq).OrderByDescending(p => p.itemSeq).FirstOrDefault();
+                if (prev_person == null)
+                {
+                    XMessageBox.Show("รายการนี้อยู่ในลำดับแรกแล้ว ไม่สามารถเลื่อนขึ้นได้อีก", "", MessageBoxButtons.OK, XMessageBoxIcon.Stop);
+                    return;
+                }
+
+                long? curr_seq = curr_person.itemSeq;
+                long? prev_seq = prev_person.itemSeq;
+                curr_person.itemSeq = prev_seq;
+                prev_person.itemSeq = curr_seq;
+                db.SaveChanges();
+
+                long? seq = 0;
+                db.boj5_detail.Include("boj5_person").OrderBy(d => d.boj5_person.itemSeq).ToList().ForEach(d => d.itemNo = ++seq);
+                db.SaveChanges();
+
+                this.LoadPersonToDatagrid();
+
+                var selected_row = this.dgvPerson.Rows.Cast<DataGridViewRow>().Where(r => ((boj5_person)r.Cells[this.col_boj5_person.Name].Value).id == curr_person.id).FirstOrDefault();
+                if (selected_row != null)
+                    selected_row.Cells[selected_row.DataGridView.FirstDisplayedScrollingColumnIndex].Selected = true;
+            }
+        }
+
+        private void btnDown_Click(object sender, EventArgs e)
+        {
+            if (this.dgvPerson.CurrentCell.RowIndex == this.dgvPerson.Rows.Count - 1 || this.dgvPerson.Rows.Count <= 1)
+                return;
+
+            using (LocalDbEntities db = DBX.DataSet(this.main_form.selected_comp))
+            {
+                if (db.boj5_person.Count() <= 1)
+                    return;
+
+                var curr_person = db.boj5_person.Find(((boj5_person)(this.dgvPerson).Rows[this.dgvPerson.CurrentCell.RowIndex].Cells[this.col_boj5_person.Name].Value).id);
+                if (curr_person == null)
+                {
+                    XMessageBox.Show("ค้นหารายการที่ต้องการแก้ไขไม่พบ", "", MessageBoxButtons.OK, XMessageBoxIcon.Stop);
+                    return;
+                }
+
+                var next_person = db.boj5_person.Where(p => p.itemSeq > curr_person.itemSeq).OrderBy(p => p.itemSeq).FirstOrDefault();
+                if (next_person == null)
+                {
+                    XMessageBox.Show("รายการนี้อยู่ในลำดับสุดท้ายแล้ว ไม่สามารถเลื่อนลงได้อีก", "", MessageBoxButtons.OK, XMessageBoxIcon.Stop);
+                    return;
+                }
+
+                long? curr_seq = curr_person.itemSeq;
+                long? next_seq = next_person.itemSeq;
+                curr_person.itemSeq = next_seq;
+                next_person.itemSeq = curr_seq;
+                db.SaveChanges();
+
+                long? seq = 0;
+                db.boj5_detail.Include("boj5_person").OrderBy(d => d.boj5_person.itemSeq).ToList().ForEach(d => d.itemNo = ++seq);
+                db.SaveChanges();
+
+                this.LoadPersonToDatagrid();
+
+                var selected_row = this.dgvPerson.Rows.Cast<DataGridViewRow>().Where(r => ((boj5_person)r.Cells[this.col_boj5_person.Name].Value).id == curr_person.id).FirstOrDefault();
+                if (selected_row != null)
+                    selected_row.Cells[selected_row.DataGridView.FirstDisplayedScrollingColumnIndex].Selected = true;
             }
         }
 
@@ -414,7 +502,6 @@ namespace Express_e_Filing.SubForm
                 this.btnUp.Enabled = ((XDatagrid)sender).CurrentCell.RowIndex == 0 ? false : true;
                 this.btnDown.Enabled = ((XDatagrid)sender).CurrentCell.RowIndex == this.person_list.Count - 1 ? false : true;
             }
-
         }
     }
 }

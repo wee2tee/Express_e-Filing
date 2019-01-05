@@ -14,6 +14,7 @@ using CC;
 using System.Data.SQLite;
 using System.Data.SQLite.EF6;
 using System.IO;
+using System.Globalization;
 
 namespace Express_e_Filing
 {
@@ -27,6 +28,8 @@ namespace Express_e_Filing
         private BindingList<GlaccTaxonomyVM> glacc3;
         private BindingList<GlaccTaxonomyVM> glacc4;
         private BindingList<GlaccTaxonomyVM> glacc5;
+
+        public DirectoryInfo eFilingTmpDir = null;
 
         private enum LANG_ACCNUM
         {
@@ -424,6 +427,25 @@ namespace Express_e_Filing
         {
             DialogShareHolders ds = new DialogShareHolders(this);
             ds.ShowDialog();
+        }
+
+        private void btnBrowseXbrl_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.InitialDirectory = this.selected_comp.GetAbsolutePath();
+            ofd.Filter = "Zip File|*.zip|All File|*.*";
+            if(ofd.ShowDialog() == DialogResult.OK)
+            {
+                string eFilingTmpFolder = this.selected_comp.GetAbsolutePath() + @"\eFiling_temp";
+                if (!Directory.Exists(eFilingTmpFolder))
+                {
+                    Directory.CreateDirectory(eFilingTmpFolder);
+                }
+
+                this.cXbrlFilePath.Text = ofd.FileName;
+                this.eFilingTmpDir = Directory.CreateDirectory(eFilingTmpFolder + @"\tmp_" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss", CultureInfo.GetCultureInfo("En-us")));
+                HelperClass.ExtractZipFile(ofd.FileName, "", this.eFilingTmpDir.FullName);
+            }
         }
     }
 }

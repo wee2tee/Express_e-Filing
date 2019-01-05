@@ -538,11 +538,13 @@
             // btnOK
             // 
             this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnOK.Location = new System.Drawing.Point(296, 276);
+            this.btnOK.Image = global::Express_e_Filing.Properties.Resources.save_16;
+            this.btnOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOK.Location = new System.Drawing.Point(292, 276);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(112, 36);
+            this.btnOK.Size = new System.Drawing.Size(116, 29);
             this.btnOK.TabIndex = 15;
-            this.btnOK.Text = "บันทึก <F9>";
+            this.btnOK.Text = "     บันทึก <F9>";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
@@ -550,18 +552,20 @@
             // 
             this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(414, 276);
+            this.btnCancel.Image = global::Express_e_Filing.Properties.Resources.stop_16;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancel.Location = new System.Drawing.Point(413, 276);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(112, 36);
+            this.btnCancel.Size = new System.Drawing.Size(116, 29);
             this.btnCancel.TabIndex = 16;
-            this.btnCancel.Text = "ยกเลิก <Esc>";
+            this.btnCancel.Text = "    ยกเลิก <Esc>";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // DialogBojPerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(820, 335);
+            this.ClientSize = new System.Drawing.Size(820, 324);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.cShId);

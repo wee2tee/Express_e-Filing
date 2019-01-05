@@ -16,7 +16,7 @@ namespace Express_e_Filing.Model
     public partial class LocalDbEntities : DbContext
     {
         public LocalDbEntities()
-            : base("name=LocalDbEntities")
+            : base("name=Entities")
         {
         }
     
@@ -35,5 +35,6 @@ namespace Express_e_Filing.Model
         public virtual DbSet<boj5_header> boj5_header { get; set; }
         public virtual DbSet<boj5_person> boj5_person { get; set; }
         public virtual DbSet<glacc_match> glacc_match { get; set; }
+        public virtual DbSet<options> options { get; set; }
     }
 }

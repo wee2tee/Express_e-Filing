@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="LocalDbModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=D:\Express\ExpressI\87\TAXONOMY.RDB" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Model.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=D:\Express\ExpressI\87\TAXONOMY.RDB" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="boj5_detail">
           <Key>
             <PropertyRef Name="id" />
@@ -75,6 +75,16 @@
           <Property Name="taxodesc" Type="nvarchar" MaxLength="2147483647" />
           <Property Name="taxodesc2" Type="nvarchar" MaxLength="2147483647" />
         </EntityType>
+        <EntityType Name="options">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="key" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="value_num" Type="real" />
+          <Property Name="value_str" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="value_datetime" Type="datetime" />
+        </EntityType>
         <Association Name="FK_boj5_detail_0_0">
           <End Role="boj5_person" Type="Self.boj5_person" Multiplicity="1" />
           <End Role="boj5_detail" Type="Self.boj5_detail" Multiplicity="*" />
@@ -87,11 +97,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="LocalDbModelStoreContainer">
+        <EntityContainer Name="ModelStoreContainer">
           <EntitySet Name="boj5_detail" EntityType="Self.boj5_detail" store:Type="Tables" />
           <EntitySet Name="boj5_header" EntityType="Self.boj5_header" store:Type="Tables" />
           <EntitySet Name="boj5_person" EntityType="Self.boj5_person" store:Type="Tables" />
           <EntitySet Name="glacc_match" EntityType="Self.glacc_match" store:Type="Tables" />
+          <EntitySet Name="options" EntityType="Self.options" store:Type="Tables" />
           <AssociationSet Name="FK_boj5_detail_0_0" Association="Self.FK_boj5_detail_0_0">
             <End Role="boj5_person" EntitySet="boj5_person" />
             <End Role="boj5_detail" EntitySet="boj5_detail" />
@@ -101,7 +112,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="LocalDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="boj5_detail">
           <Key>
             <PropertyRef Name="id" />
@@ -174,6 +185,16 @@
           <Property Name="taxodesc" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
           <Property Name="taxodesc2" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="options">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="key" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="value_num" Type="Double" />
+          <Property Name="value_str" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="value_datetime" Type="DateTime" />
+        </EntityType>
         <Association Name="FK_boj5_detail_0_0">
           <End Role="boj5_person" Type="Self.boj5_person" Multiplicity="1" />
           <End Role="boj5_detail" Type="Self.boj5_detail" Multiplicity="*" />
@@ -186,11 +207,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="LocalDbEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="boj5_detail" EntityType="Self.boj5_detail" />
           <EntitySet Name="boj5_header" EntityType="Self.boj5_header" />
           <EntitySet Name="boj5_person" EntityType="Self.boj5_person" />
           <EntitySet Name="glacc_match" EntityType="Self.glacc_match" />
+          <EntitySet Name="options" EntityType="Self.options" />
           <AssociationSet Name="FK_boj5_detail_0_0" Association="Self.FK_boj5_detail_0_0">
             <End Role="boj5_person" EntitySet="boj5_person" />
             <End Role="boj5_detail" EntitySet="boj5_detail" />
@@ -201,9 +223,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="LocalDbModelStoreContainer" CdmEntityContainer="LocalDbEntities">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
           <EntitySetMapping Name="boj5_detail">
-            <EntityTypeMapping TypeName="LocalDbModel.boj5_detail">
+            <EntityTypeMapping TypeName="Model.boj5_detail">
               <MappingFragment StoreEntitySet="boj5_detail">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="itemNo" ColumnName="itemNo" />
@@ -221,7 +243,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="boj5_header">
-            <EntityTypeMapping TypeName="LocalDbModel.boj5_header">
+            <EntityTypeMapping TypeName="Model.boj5_header">
               <MappingFragment StoreEntitySet="boj5_header">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="userId" ColumnName="userId" />
@@ -242,7 +264,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="boj5_person">
-            <EntityTypeMapping TypeName="LocalDbModel.boj5_person">
+            <EntityTypeMapping TypeName="Model.boj5_person">
               <MappingFragment StoreEntitySet="boj5_person">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="addrForeign" ColumnName="addrForeign" />
@@ -266,13 +288,24 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="glacc_match">
-            <EntityTypeMapping TypeName="LocalDbModel.glacc_match">
+            <EntityTypeMapping TypeName="Model.glacc_match">
               <MappingFragment StoreEntitySet="glacc_match">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="accnum" ColumnName="accnum" />
                 <ScalarProperty Name="depcod" ColumnName="depcod" />
                 <ScalarProperty Name="taxodesc" ColumnName="taxodesc" />
                 <ScalarProperty Name="taxodesc2" ColumnName="taxodesc2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="options">
+            <EntityTypeMapping TypeName="Model.options">
+              <MappingFragment StoreEntitySet="options">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="key" ColumnName="key" />
+                <ScalarProperty Name="value_num" ColumnName="value_num" />
+                <ScalarProperty Name="value_str" ColumnName="value_str" />
+                <ScalarProperty Name="value_datetime" ColumnName="value_datetime" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

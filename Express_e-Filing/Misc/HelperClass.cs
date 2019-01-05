@@ -20,8 +20,70 @@ namespace Express_e_Filing.Misc
         EDIT
     }
 
+    public enum OPTIONS
+    {
+        EFILING_TMP_DIR
+    }
+
     public static class HelperClass
     {
+        public static options GetOptions(this OPTIONS options_key, SccompDbf selected_comp)
+        {
+            try
+            {
+                using (LocalDbEntities db = DBX.DataSet(selected_comp))
+                {
+                    options opt = db.options.Where(o => o.key == options_key.ToString()).FirstOrDefault();
+
+                    if (opt != null)
+                    {
+                        return opt;
+                    }
+                    else
+                    {
+                        options o = new options { key = options_key.ToString() };
+                        db.options.Add(o);
+                        db.SaveChanges();
+                        return o;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                XMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, XMessageBoxIcon.Error);
+                return null;
+            }
+        }
+
+        public static int SaveOptions(this options options_to_save, SccompDbf selected_comp)
+        {
+            try
+            {
+                using (LocalDbEntities db = DBX.DataSet(selected_comp))
+                {
+                    options option = db.options.Where(o => o.key == options_to_save.key).FirstOrDefault();
+                    if(option != null) // update
+                    {
+                        option.value_datetime = options_to_save.value_datetime;
+                        option.value_num = options_to_save.value_num;
+                        option.value_str = options_to_save.value_str;
+
+                        return db.SaveChanges();
+                    }
+                    else // add new
+                    {
+                        db.options.Add(options_to_save);
+                        return db.SaveChanges();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                XMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, XMessageBoxIcon.Error);
+                return 0;
+            }
+        }
+
         public static string GetAbsolutePath(this SccompDbf sccomp)
         {
             
@@ -336,6 +398,44 @@ namespace Express_e_Filing.Misc
                 Rectangle rect = dgv.GetCellDisplayRectangle(column_index, row_index, true);
                 inline_control.SetBounds(rect.X, rect.Y + 1, rect.Width - 1, rect.Height - 3);
             }
+        }
+
+        public static List<string> GetFileNameListInZip(string archiveFilenameIn)
+        {
+            List<string> file_name = new List<string>();
+
+            using (var fs = new FileStream(archiveFilenameIn, FileMode.Open, FileAccess.Read))
+            {
+                using (var zf = new ZipFile(fs))
+                {
+                    foreach (ZipEntry ze in zf)
+                    {
+                        if (ze.IsDirectory)
+                            continue;
+
+                        Console.Out.WriteLine(ze.Name);
+                        file_name.Add(ze.Name);
+
+                        //using (Stream s = zf.GetInputStream(ze))
+                        //{
+                        //    byte[] buf = new byte[4096];
+                        //    // Analyze file in memory using MemoryStream.
+                        //    using (MemoryStream ms = new MemoryStream())
+                        //    {
+                        //        StreamUtils.Copy(s, ms, buf);
+                        //    }
+                        //    // Uncomment the following lines to store the file
+                        //    // on disk.
+                        //    /*using (FileStream fs = File.Create(@"c:\temp\uncompress_" + ze.Name))
+                        //    {
+                        //      StreamUtils.Copy(s, fs, buf);
+                        //    }*/
+                        //}
+                    }
+                }
+            }
+
+            return file_name;
         }
 
         public static void ExtractZipFile(string archiveFilenameIn, string password, string outFolder)

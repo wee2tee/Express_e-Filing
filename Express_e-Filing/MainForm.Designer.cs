@@ -105,7 +105,7 @@
             this.inlineTaxonomy2 = new CC.XBrowseBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnBrowseXbrl = new System.Windows.Forms.Button();
-            this.cXbrlFilePath = new System.Windows.Forms.Label();
+            this.cZipFilePath = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabAsset.SuspendLayout();
@@ -369,7 +369,7 @@
             this.tabLiability.Controls.Add(this.dgv2);
             this.tabLiability.Location = new System.Drawing.Point(4, 25);
             this.tabLiability.Name = "tabLiability";
-            this.tabLiability.Size = new System.Drawing.Size(952, 408);
+            this.tabLiability.Size = new System.Drawing.Size(974, 422);
             this.tabLiability.TabIndex = 1;
             this.tabLiability.Text = "หนี้สิน";
             this.tabLiability.UseVisualStyleBackColor = true;
@@ -418,7 +418,7 @@
             this.dgv2.RowHeadersVisible = false;
             this.dgv2.RowTemplate.Height = 26;
             this.dgv2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv2.Size = new System.Drawing.Size(952, 408);
+            this.dgv2.Size = new System.Drawing.Size(974, 422);
             this.dgv2.StandardTab = true;
             this.dgv2.TabIndex = 1;
             this.dgv2.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgv_CellPainting);
@@ -483,7 +483,7 @@
             this.tabEquity.Controls.Add(this.dgv3);
             this.tabEquity.Location = new System.Drawing.Point(4, 25);
             this.tabEquity.Name = "tabEquity";
-            this.tabEquity.Size = new System.Drawing.Size(952, 408);
+            this.tabEquity.Size = new System.Drawing.Size(974, 422);
             this.tabEquity.TabIndex = 2;
             this.tabEquity.Text = "ทุน";
             this.tabEquity.UseVisualStyleBackColor = true;
@@ -532,7 +532,7 @@
             this.dgv3.RowHeadersVisible = false;
             this.dgv3.RowTemplate.Height = 26;
             this.dgv3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv3.Size = new System.Drawing.Size(952, 408);
+            this.dgv3.Size = new System.Drawing.Size(974, 422);
             this.dgv3.StandardTab = true;
             this.dgv3.TabIndex = 2;
             this.dgv3.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgv_CellPainting);
@@ -597,7 +597,7 @@
             this.tabRevenue.Controls.Add(this.dgv4);
             this.tabRevenue.Location = new System.Drawing.Point(4, 25);
             this.tabRevenue.Name = "tabRevenue";
-            this.tabRevenue.Size = new System.Drawing.Size(952, 408);
+            this.tabRevenue.Size = new System.Drawing.Size(974, 422);
             this.tabRevenue.TabIndex = 3;
             this.tabRevenue.Text = "รายได้";
             this.tabRevenue.UseVisualStyleBackColor = true;
@@ -646,7 +646,7 @@
             this.dgv4.RowHeadersVisible = false;
             this.dgv4.RowTemplate.Height = 26;
             this.dgv4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv4.Size = new System.Drawing.Size(952, 408);
+            this.dgv4.Size = new System.Drawing.Size(974, 422);
             this.dgv4.StandardTab = true;
             this.dgv4.TabIndex = 2;
             this.dgv4.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgv_CellPainting);
@@ -711,7 +711,7 @@
             this.tabExpense.Controls.Add(this.dgv5);
             this.tabExpense.Location = new System.Drawing.Point(4, 25);
             this.tabExpense.Name = "tabExpense";
-            this.tabExpense.Size = new System.Drawing.Size(952, 408);
+            this.tabExpense.Size = new System.Drawing.Size(974, 422);
             this.tabExpense.TabIndex = 4;
             this.tabExpense.Text = "ค่าใช้จ่าย";
             this.tabExpense.UseVisualStyleBackColor = true;
@@ -760,7 +760,7 @@
             this.dgv5.RowHeadersVisible = false;
             this.dgv5.RowTemplate.Height = 26;
             this.dgv5.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv5.Size = new System.Drawing.Size(952, 408);
+            this.dgv5.Size = new System.Drawing.Size(974, 422);
             this.dgv5.StandardTab = true;
             this.dgv5.TabIndex = 2;
             this.dgv5.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgv_CellPainting);
@@ -970,14 +970,15 @@
             this.btnBrowseXbrl.UseVisualStyleBackColor = true;
             this.btnBrowseXbrl.Click += new System.EventHandler(this.btnBrowseXbrl_Click);
             // 
-            // cXbrlFilePath
+            // cZipFilePath
             // 
-            this.cXbrlFilePath.BackColor = System.Drawing.Color.White;
-            this.cXbrlFilePath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cXbrlFilePath.Location = new System.Drawing.Point(225, 106);
-            this.cXbrlFilePath.Name = "cXbrlFilePath";
-            this.cXbrlFilePath.Size = new System.Drawing.Size(446, 21);
-            this.cXbrlFilePath.TabIndex = 3;
+            this.cZipFilePath.BackColor = System.Drawing.Color.White;
+            this.cZipFilePath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cZipFilePath.Location = new System.Drawing.Point(225, 106);
+            this.cZipFilePath.Name = "cZipFilePath";
+            this.cZipFilePath.Size = new System.Drawing.Size(446, 21);
+            this.cZipFilePath.TabIndex = 3;
+            this.cZipFilePath.TextChanged += new System.EventHandler(this.cZipFilePath_TextChanged);
             // 
             // MainForm
             // 
@@ -989,7 +990,7 @@
             this.Controls.Add(this.inlineTaxonomy1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.cXbrlFilePath);
+            this.Controls.Add(this.cZipFilePath);
             this.Controls.Add(this.cDataPath);
             this.Controls.Add(this.cCompName);
             this.Controls.Add(this.label2);
@@ -1096,7 +1097,7 @@
         private System.Windows.Forms.ToolStripButton btnShareHolder;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnBrowseXbrl;
-        private System.Windows.Forms.Label cXbrlFilePath;
+        private System.Windows.Forms.Label cZipFilePath;
     }
 }
 

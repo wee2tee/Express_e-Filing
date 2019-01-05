@@ -300,7 +300,13 @@ namespace Express_e_Filing
         {
             DialogSelectComp selcomp = new DialogSelectComp(this);
             if (selcomp.ShowDialog() != DialogResult.OK)
+            {
+                if(this.selected_comp == null)
+                {
+                    Application.Exit();
+                }
                 return;
+            }
 
             this.selected_comp = selcomp.selected_comp;
             this.glacc_list = DbfTable.GetGlaccList(this.selected_comp);
@@ -436,16 +442,53 @@ namespace Express_e_Filing
             ofd.Filter = "Zip File|*.zip|All File|*.*";
             if(ofd.ShowDialog() == DialogResult.OK)
             {
-                string eFilingTmpFolder = this.selected_comp.GetAbsolutePath() + @"\eFiling_temp";
-                if (!Directory.Exists(eFilingTmpFolder))
+                if(HelperClass.GetFileNameListInZip(ofd.FileName).Where(f => f.ToLower() == "dimension_static.xml").Count() < 1)
                 {
-                    Directory.CreateDirectory(eFilingTmpFolder);
+                    XMessageBox.Show("Zip file ที่ท่านเลือกไม่ใช่ไฟล์รูปแบบงบการเงิน กรุณาเลือกใหม่ให้ถูกต้อง", "", MessageBoxButtons.OK, XMessageBoxIcon.Stop);
+                    return;
                 }
 
-                this.cXbrlFilePath.Text = ofd.FileName;
-                this.eFilingTmpDir = Directory.CreateDirectory(eFilingTmpFolder + @"\tmp_" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss", CultureInfo.GetCultureInfo("En-us")));
-                HelperClass.ExtractZipFile(ofd.FileName, "", this.eFilingTmpDir.FullName);
+                this.cZipFilePath.Text = ofd.FileName;
+
+                //string tmpDir = this.selected_comp.GetAbsolutePath() + @"\eFiling_temp";
+
+                //if (!Directory.Exists(tmpDir))
+                //{
+                //    Directory.CreateDirectory(tmpDir);
+                //}
+
+                //this.cZipFilePath.Text = ofd.FileName;
+                //this.eFilingTmpDir = Directory.CreateDirectory(tmpDir + @"\tmp_" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss", CultureInfo.GetCultureInfo("En-us")));
+                //HelperClass.ExtractZipFile(ofd.FileName, "", this.eFilingTmpDir.FullName);
+
+                //var option = OPTIONS.EFILING_TMP_DIR.GetOptions(this.selected_comp);
+                //option.value_str = this.eFilingTmpDir.FullName;
+                //option.SaveOptions(this.selected_comp);
             }
+        }
+
+        private void cZipFilePath_TextChanged(object sender, EventArgs e)
+        {
+            string tmpDir = this.selected_comp.GetAbsolutePath() + @"\eFiling_temp";
+
+            if (!Directory.Exists(tmpDir))
+            {
+                Directory.CreateDirectory(tmpDir);
+            }
+
+            //this.cZipFilePath.Text = ofd.FileName;
+            
+            if(!Directory.Exists(tmpDir + @"\" + Path.GetFileNameWithoutExtension(((Label)sender).Text)))
+            {
+
+            }
+
+            this.eFilingTmpDir = Directory.CreateDirectory(tmpDir + @"\tmp_" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss", CultureInfo.GetCultureInfo("En-us")));
+            HelperClass.ExtractZipFile(ofd.FileName, "", this.eFilingTmpDir.FullName);
+
+            var option = OPTIONS.EFILING_TMP_DIR.GetOptions(this.selected_comp);
+            option.value_str = this.eFilingTmpDir.FullName;
+            option.SaveOptions(this.selected_comp);
         }
     }
 }

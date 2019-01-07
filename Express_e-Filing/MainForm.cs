@@ -15,6 +15,7 @@ using System.Data.SQLite;
 using System.Data.SQLite.EF6;
 using System.IO;
 using System.Globalization;
+using System.Xml.Linq;
 
 namespace Express_e_Filing
 {
@@ -29,6 +30,7 @@ namespace Express_e_Filing
         private BindingList<GlaccTaxonomyVM> glacc4;
         private BindingList<GlaccTaxonomyVM> glacc5;
 
+        public List<tagXml> tag_xml;
         public DirectoryInfo eFilingTmpDir = null;
 
         private enum LANG_ACCNUM
@@ -55,6 +57,20 @@ namespace Express_e_Filing
             {
                 this.btnOpenFolder.PerformClick();
             }
+
+            //if (this.selected_comp != null)
+            //{
+            //    SQLiteDbPrepare.EnsureDbCreated(this.selected_comp);
+            //    options opt = HelperClass.GetOptions(OPTIONS.EFILING_TMP_DIR, this.selected_comp);
+            //    if (opt.value_str != null && opt.value_str.Trim().Length > 0 && File.Exists(opt.value_str.Trim()))
+            //    {
+            //        this.cZipFilePath.Text = opt.value_str.Trim();
+            //    }
+            //    else
+            //    {
+            //        this.cZipFilePath.Text = string.Empty;
+            //    }
+            //}
         }
 
         private void FillForm()
@@ -311,22 +327,19 @@ namespace Express_e_Filing
             this.selected_comp = selcomp.selected_comp;
             this.glacc_list = DbfTable.GetGlaccList(this.selected_comp);
 
-            if(this.selected_comp != null)
+            if (this.selected_comp != null)
             {
                 SQLiteDbPrepare.EnsureDbCreated(this.selected_comp);
+                options opt = HelperClass.GetOptions(OPTIONS.EFILING_TMP_DIR, this.selected_comp);
+                if (opt.value_str != null && opt.value_str.Trim().Length > 0 && File.Exists(opt.value_str.Trim()))
+                {
+                    this.cZipFilePath.Text = opt.value_str.Trim();
+                }
+                else
+                {
+                    this.cZipFilePath.Text = string.Empty;
+                }
             }
-
-            //using (SQLiteDbContext d = new SQLiteDbContext(this.selected_comp))
-            //{
-            //    d.glacc_match.Add(new glacc_match
-            //    {
-            //        accnum = "11-22",
-            //        depcod = "ขาย 1",
-            //        taxodesc = "TAXO_1",
-            //        taxodesc2 = "TAXO_2"
-            //    });
-            //    d.SaveChanges();
-            //}
 
             this.FillForm();
         }
@@ -421,10 +434,6 @@ namespace Express_e_Filing
 
         private void btnExportStatement_Click(object sender, EventArgs e)
         {
-            //var xdoc = Taxonomy.GetTaxo();
-
-            //Console.WriteLine(xdoc);
-
             DialogShareHolders ds = new DialogShareHolders(this);
             ds.ShowDialog();
         }
@@ -435,7 +444,7 @@ namespace Express_e_Filing
             ds.ShowDialog();
         }
 
-        private void btnBrowseXbrl_Click(object sender, EventArgs e)
+        private void btnBrowseZipFile_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.InitialDirectory = this.selected_comp.GetAbsolutePath();
@@ -469,6 +478,12 @@ namespace Express_e_Filing
 
         private void cZipFilePath_TextChanged(object sender, EventArgs e)
         {
+            if (((Label)sender).Text.Trim().Length == 0)
+            {
+                this.eFilingTmpDir = null;
+                return;
+            }
+
             string tmpDir = this.selected_comp.GetAbsolutePath() + @"\eFiling_temp";
 
             if (!Directory.Exists(tmpDir))
@@ -476,19 +491,70 @@ namespace Express_e_Filing
                 Directory.CreateDirectory(tmpDir);
             }
 
-            //this.cZipFilePath.Text = ofd.FileName;
-            
             if(!Directory.Exists(tmpDir + @"\" + Path.GetFileNameWithoutExtension(((Label)sender).Text)))
             {
-
+                this.eFilingTmpDir = Directory.CreateDirectory(tmpDir + @"\" + Path.GetFileNameWithoutExtension(((Label)sender).Text));
+            }
+            else
+            {
+                this.eFilingTmpDir =  new DirectoryInfo(tmpDir + @"\" + Path.GetFileNameWithoutExtension(((Label)sender).Text));
             }
 
-            this.eFilingTmpDir = Directory.CreateDirectory(tmpDir + @"\tmp_" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss", CultureInfo.GetCultureInfo("En-us")));
-            HelperClass.ExtractZipFile(ofd.FileName, "", this.eFilingTmpDir.FullName);
+            if (!File.Exists(this.eFilingTmpDir.FullName + @"\dimension_static.xml"))
+                HelperClass.ExtractZipFile(((Label)sender).Text, "", this.eFilingTmpDir.FullName);
 
             var option = OPTIONS.EFILING_TMP_DIR.GetOptions(this.selected_comp);
-            option.value_str = this.eFilingTmpDir.FullName;
+            option.value_str = ((Label)sender).Text;
             option.SaveOptions(this.selected_comp);
+
+            GetTagId(this.eFilingTmpDir.FullName/* + @"\lab_npae_com-oth_2017-08-01_th.xml"*/);
+        }
+
+        public static List<tagXml> GetTagId(string xml_file_path)
+        {
+            var tags = new List<tagXml>();
+
+            string xml_file_th = string.Empty;
+            string xml_file_en = string.Empty;
+
+            DirectoryInfo d_info = new DirectoryInfo(xml_file_path);
+            d_info.GetFiles().ToList().ForEach(f =>
+            {
+                if(f.Name.StartsWith("lab") && f.Name.EndsWith("th.xml") && !f.Name.Contains("rol"))
+                {
+                    xml_file_th = f.Name;
+                }
+                if (f.Name.StartsWith("lab") && f.Name.EndsWith("en.xml") && !f.Name.Contains("rol"))
+                {
+                    xml_file_en = f.Name;
+                }
+            });
+
+            XElement elem = XElement.Load(xml_file_path + @"\" + xml_file_th);
+
+            XElement elem2 = XElement.Parse(elem.Nodes().ElementAt(1).NodesAfterSelf().ToList()[2].ToString());
+            elem2.Elements().ToList().Where(n => n.ToString().StartsWith("<link:label ")).ToList().ForEach(n =>
+            {
+                tags.Add(new tagXml
+                {
+                    tagId = n.Attribute("id").Value,
+                    accnam_th = n.Value,
+                    accnam_en = string.Empty
+                });
+            });
+
+            elem = XElement.Load(xml_file_path + @"\" + xml_file_en);
+
+            elem2 = XElement.Parse(elem.Nodes().ElementAt(1).NodesAfterSelf().ToList()[2].ToString());
+            elem2.Elements().ToList().Where(n => n.ToString().StartsWith("<link:label ")).ToList().ForEach(n =>
+            {
+                var x = tags.Where(t => t.tagId == n.Attribute("id").Value).FirstOrDefault();
+                x.accnam_en = n.Value;
+            });
+
+            //Console.WriteLine(" ==> " + tags.Count);
+
+            return tags;
         }
     }
 }

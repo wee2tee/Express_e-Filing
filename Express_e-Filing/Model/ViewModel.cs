@@ -37,4 +37,11 @@ namespace Express_e_Filing.Model
         public string nationality_name_en { get; set; }
 
     }
+
+    public class tagXml
+    {
+        public string tagId { get; set; }
+        public string accnam_th { get; set; }
+        public string accnam_en { get; set; }
+    }
 }

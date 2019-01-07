@@ -104,7 +104,7 @@
             this.inlineTaxonomy1 = new CC.XBrowseBox();
             this.inlineTaxonomy2 = new CC.XBrowseBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnBrowseXbrl = new System.Windows.Forms.Button();
+            this.btnBrowseZipFile = new System.Windows.Forms.Button();
             this.cZipFilePath = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -960,15 +960,15 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "ที่เก็บไฟล์รูปแบบงบการเงิน(zip file)";
             // 
-            // btnBrowseXbrl
+            // btnBrowseZipFile
             // 
-            this.btnBrowseXbrl.Location = new System.Drawing.Point(672, 105);
-            this.btnBrowseXbrl.Name = "btnBrowseXbrl";
-            this.btnBrowseXbrl.Size = new System.Drawing.Size(28, 23);
-            this.btnBrowseXbrl.TabIndex = 9;
-            this.btnBrowseXbrl.Text = "...";
-            this.btnBrowseXbrl.UseVisualStyleBackColor = true;
-            this.btnBrowseXbrl.Click += new System.EventHandler(this.btnBrowseXbrl_Click);
+            this.btnBrowseZipFile.Location = new System.Drawing.Point(672, 105);
+            this.btnBrowseZipFile.Name = "btnBrowseZipFile";
+            this.btnBrowseZipFile.Size = new System.Drawing.Size(28, 23);
+            this.btnBrowseZipFile.TabIndex = 9;
+            this.btnBrowseZipFile.Text = "...";
+            this.btnBrowseZipFile.UseVisualStyleBackColor = true;
+            this.btnBrowseZipFile.Click += new System.EventHandler(this.btnBrowseZipFile_Click);
             // 
             // cZipFilePath
             // 
@@ -985,7 +985,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(994, 635);
-            this.Controls.Add(this.btnBrowseXbrl);
+            this.Controls.Add(this.btnBrowseZipFile);
             this.Controls.Add(this.inlineTaxonomy2);
             this.Controls.Add(this.inlineTaxonomy1);
             this.Controls.Add(this.statusStrip1);
@@ -1096,7 +1096,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton btnShareHolder;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnBrowseXbrl;
+        private System.Windows.Forms.Button btnBrowseZipFile;
         private System.Windows.Forms.Label cZipFilePath;
     }
 }

@@ -16,7 +16,7 @@ namespace Express_e_Filing.SubForm
     {
         public SccompDbf selected_comp = null;
 
-        private MainForm main_form;
+        private OldForm main_form;
         private BindingList<SccompDbfVM> sccomp_list;
         private enum SORT_TYPE
         {
@@ -25,7 +25,7 @@ namespace Express_e_Filing.SubForm
         }
         private SORT_TYPE sort_type = SORT_TYPE.COMPNAM;
 
-        public DialogSelectComp(MainForm main_form)
+        public DialogSelectComp(OldForm main_form)
         {
             this.main_form = main_form;
             InitializeComponent();

@@ -14,7 +14,7 @@ namespace Express_e_Filing.Model
         public string name { get; set; }
         public string taxodesc { get; set; }
 
-        public static List<Taxonomy> GetTaxonomyList(MainForm main_form)
+        public static List<Taxonomy> GetTaxonomyList(OldForm main_form)
         {
             List<Taxonomy> taxo = new List<Taxonomy>();
             if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "/Template/dbd_taxonomy.xml"))

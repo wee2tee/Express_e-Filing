@@ -14,7 +14,7 @@ namespace Express_e_Filing.SubForm
 {
     public partial class DialogShareHolders : Form
     {
-        private MainForm main_form;
+        private OldForm main_form;
         private FORM_MODE form_mode = FORM_MODE.READ;
         private IsinfoDbf isinfo;
         private boj5_header boj5_header;
@@ -47,7 +47,7 @@ namespace Express_e_Filing.SubForm
             PREFERRED_SHARE = 1
         }
             
-        public DialogShareHolders(MainForm main_form)
+        public DialogShareHolders(OldForm main_form)
         {
             this.main_form = main_form;
             InitializeComponent();

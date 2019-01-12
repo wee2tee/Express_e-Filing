@@ -1,0 +1,27 @@
+﻿[
+  {
+    "id": 1,
+    "is_label": true,
+    "is_readonly": true,
+    "level": 0,
+    "name_th": "งบแสดงฐานะการเงิน",
+    "name_en": "Statement of financial position",
+    "amount_1": 0,
+    "amount_2": 0,
+    "parent_id": null,
+    "summaryline_id": null
+  },
+  {
+    "id": 2,
+    "is_label": true,
+    "is_readonly": true,
+    "level": 0,
+    "name_th": "สินทรัพย์",
+    "name_en": "Assets",
+    "amount_1": 0,
+    "amount_2": 0,
+    "parent_id": 1,
+    "summaryline_id": null
+  },
+
+]

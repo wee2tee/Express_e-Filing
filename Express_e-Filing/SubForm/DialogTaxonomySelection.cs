@@ -7,18 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Express_e_Filing
+namespace Express_e_Filing.SubForm
 {
-    public partial class MainForm : Form
+    public partial class DialogTaxonomySelection : Form
     {
-        public MainForm()
+        public DialogTaxonomySelection()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }

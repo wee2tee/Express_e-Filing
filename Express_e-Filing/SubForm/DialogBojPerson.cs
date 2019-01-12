@@ -17,7 +17,7 @@ namespace Express_e_Filing.SubForm
 {
     public partial class DialogBojPerson : Form
     {
-        private MainForm main_form;
+        private OldForm main_form;
         private boj5_person boj5_person;
         private nationality_VM selected_nation = null;
         private enum SHARE_HOLDER_TYPE
@@ -26,7 +26,7 @@ namespace Express_e_Filing.SubForm
             P  // Personal
         }
 
-        public DialogBojPerson(MainForm main_form, boj5_person boj5_person = null)
+        public DialogBojPerson(OldForm main_form, boj5_person boj5_person = null)
         {
             this.main_form = main_form;
             this.boj5_person = boj5_person;

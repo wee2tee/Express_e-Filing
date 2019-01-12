@@ -88,6 +88,13 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\bs_tmpl.cs" />
+    <Compile Include="OldForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OldForm.Designer.cs">
+      <DependentUpon>OldForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Misc\HelperClass.cs" />
     <Compile Include="Model\boj5_detail.cs">
       <DependentUpon>LocalDbModel.tt</DependentUpon>
@@ -157,8 +164,17 @@
     <Compile Include="SubForm\DialogShareHolders.Designer.cs">
       <DependentUpon>DialogShareHolders.cs</DependentUpon>
     </Compile>
+    <Compile Include="SubForm\DialogTaxonomySelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForm\DialogTaxonomySelection.Designer.cs">
+      <DependentUpon>DialogTaxonomySelection.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OldForm.resx">
+      <DependentUpon>OldForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -185,6 +201,9 @@
     <EmbeddedResource Include="SubForm\DialogShareHolders.resx">
       <DependentUpon>DialogShareHolders.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SubForm\DialogTaxonomySelection.resx">
+      <DependentUpon>DialogTaxonomySelection.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config" />
     <EntityDeploy Include="Model\LocalDbModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -203,6 +222,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Template\bs_tmpl.json" />
     <None Include="Template\nationality.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

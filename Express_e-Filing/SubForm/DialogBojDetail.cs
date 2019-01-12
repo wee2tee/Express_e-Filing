@@ -14,7 +14,7 @@ namespace Express_e_Filing.SubForm
 {
     public partial class DialogBojDetail : Form
     {
-        private MainForm main_form;
+        private OldForm main_form;
         private boj5_detail boj5_detail;
         private BindingList<boj5_person_VM> person_list;
         private IsinfoDbf isinfo;
@@ -24,7 +24,7 @@ namespace Express_e_Filing.SubForm
             PREFERRED_SHARE = 1
         }
 
-        public DialogBojDetail(MainForm main_form, boj5_detail boj5_detail = null)
+        public DialogBojDetail(OldForm main_form, boj5_detail boj5_detail = null)
         {
             this.main_form = main_form;
             this.boj5_detail = boj5_detail;
